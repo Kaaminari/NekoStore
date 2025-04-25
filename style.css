@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: radial-gradient(circle at top center, #1a001a, #000);
+  color: #fff;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f0022;
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d85cff;
+}
+
+.search-bar {
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #2a0032;
+  color: #fff;
+}
+
+.login-btn, .cart {
+  background: #8000ff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  margin-top: 30px;
+}
+
+.categorias h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.categoria-lista {
+  display: flex;
+  gap: 20px;
+}
+
+.categoria {
+  background: #2f003a;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.produtos {
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+}
+
+.produto {
+  background: #38004a;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 180px;
+  box-shadow: 0 0 10px #aa00ff55;
+}
+
+.produto .desconto {
+  color: #ff66ff;
+  font-weight: bold;
+}
+
+.produto .preco {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #00ffcc;
+}
+
+.produto.esgotado {
+  background: #222;
+  color: #aaa;
+}
