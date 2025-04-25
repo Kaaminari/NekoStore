@@ -43,15 +43,32 @@ header {
   color: #ccc;                      /* cor do placeholder */
 }
 
-.login-btn, .cart {
-  background: #8000ff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+.login-button {
+  background: rgba(58, 7, 88, 0.5);
+  backdrop-filter: blur(6px);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-button:hover {
+  background: rgba(58, 7, 88, 0.7);
+}
+
+.cart-icon {
+  height: 28px;
+  cursor: pointer;
+}
 main {
   margin-top: 30px;
 }
