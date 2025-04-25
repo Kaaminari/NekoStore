@@ -72,8 +72,18 @@ header {
 
 .cart-icon {
   height: 28px;
+  padding: 8px;
+  background: rgba(112, 0, 255, 0.2);
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.2s;
+  filter: brightness(0) invert(1); /* Deixa o ícone branco */
 }
+
+.cart-icon:hover {
+  background: rgba(112, 0, 255, 0.4);
+}
+
 
 /* Seções */
 main {
