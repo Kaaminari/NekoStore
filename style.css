@@ -214,6 +214,21 @@ main {
   margin-bottom: 15px;
 }
 
+.produto-card.esgotado {
+  opacity: 0.6;
+  position: relative;
+}
+
+.tag-esgotado {
+  background: #ff4444;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 6px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
 .categoria-lista {
   display: flex;
   flex-wrap: wrap;
