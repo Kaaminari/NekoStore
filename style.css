@@ -30,7 +30,7 @@ header {
   background: rgba(58, 7, 88, 0.5); /* fundo roxo escuro translúcido */
   backdrop-filter: blur(6px);       /* efeito de desfoque */
   border: none;
-  border-radius: 15px;              /* cantos bem arredondados */
+  border-radius: 18px;              /* cantos bem arredondados */
   padding: 10px 20px;
   color: white;
   width: 100%;
