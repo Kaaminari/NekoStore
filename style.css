@@ -48,7 +48,7 @@ header {
   z-index: 1;
 }
 
-/* Pseudo-elemento para animação da barra */
+/* Animação da barra embaixo ao passar o mouse */
 .search-bar::after {
   content: "";
   position: absolute;
@@ -59,18 +59,19 @@ header {
   background: linear-gradient(90deg, #b03fff, #ff9bff);
   transition: width 0.3s ease;
   border-radius: 20px;
-  z-index: -1;
+  pointer-events: none;
 }
 
 .search-bar:hover::after {
   width: 100%;
 }
 
-/* Quando focar (clicar ou tocar), borda traçada com brilho */
+/* Borda traçada roxa com brilho (não picotada, mais suave) */
 .search-bar:focus {
-  border: 2px dashed #b03fff;
-  box-shadow: 0 0 8px #b03fff;
+  border: 2px dashed rgba(176, 63, 255, 0.8); /* tom suave de roxo */
+  box-shadow: 0 0 8px rgba(176, 63, 255, 0.6);
 }
+
 
 
 .actions {
