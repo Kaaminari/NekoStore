@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LunarShop Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">LUNAR</div>
+    <input type="text" placeholder="Procure pelo nome do produto" class="search-bar" />
+    <button class="login-btn">Fazer login</button>
+    <div class="cart">🛒 Carrinho</div>
+  </header>
+
+  <main>
+    <section class="categorias">
+      <h2>Categorias Populares</h2>
+      <div class="categoria-lista">
+        <div class="categoria">Cassino</div>
+        <div class="categoria">+Vendidos</div>
+        <div class="categoria">Assinaturas</div>
+        <div class="categoria">Roblox</div>
+        <div class="categoria">Outros métodos</div>
+      </div>
+    </section>
+
+    <section class="produtos">
+      <div class="produto">
+        <h3>Caixa PIX</h3>
+        <p class="desconto">-67%</p>
+        <p class="preco">R$ 1,50</p>
+      </div>
+      <div class="produto">
+        <h3>Roleta Assinaturas</h3>
+        <p class="desconto">-66%</p>
+        <p class="preco">R$ 0,85</p>
+      </div>
+      <div class="produto esgotado">
+        <h3>Roleta Métodos</h3>
+        <p>Estoque esgotado</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
