@@ -371,8 +371,8 @@ main {
 /* Produtos */
 .produtos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-items: center;
 }
 
 .produto {
