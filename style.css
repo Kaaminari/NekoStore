@@ -65,7 +65,8 @@ header {
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.2s ease;
-  /* sem border aqui */
+  border: none; /* Remover qualquer borda padrão */
+  outline: none; /* Remover qualquer outline padrão */
 }
 
 .login-button::before {
@@ -91,8 +92,9 @@ header {
 
 .login-button:hover {
   transform: scale(1.05);
-  box-shadow: inset 0 0 0 2px rgba(112, 0, 255, 0.8);
+  box-shadow: inset 0 0 0 2px rgba(112, 0, 255, 0.8); /* Borda visível só no hover */
 }
+
 
 
 /* Botão de carrinho transformado */
