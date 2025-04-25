@@ -163,6 +163,41 @@ header {
   z-index: 1;
 }
 
+.logo-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-img {
+  transform: scale(1.1);
+}
+
+.logo-text {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff5ec4;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.logo-container:hover .logo-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
 
 /* Seções */
 main {
