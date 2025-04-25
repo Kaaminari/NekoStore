@@ -371,8 +371,9 @@ main {
 /* Produtos */
 .produtos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+  justify-content: center; /* centraliza a linha com menos itens */
+  gap: 15px; /* controla a distância entre os cards */
 }
 
 .produto {
