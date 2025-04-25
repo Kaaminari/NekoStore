@@ -310,6 +310,7 @@ main {
   text-transform: uppercase;
 }
 
+/* Mantém a tag com fundo e visível */
 .tag-entrega {
   display: inline-flex;
   align-items: center;
@@ -320,12 +321,14 @@ main {
   padding: 2px 8px;
   gap: 5px;
   margin-bottom: 6px;
+  position: relative;
+  z-index: 2; /* fica acima do card */
 }
 
 .tag-entrega img {
   width: 14px;
   height: 14px;
-  filter: brightness(0) invert(1); /* transforma branco em preto */
+  filter: brightness(0) invert(1); /* opcional, deixa ícone branco em preto */
 }
 
 
