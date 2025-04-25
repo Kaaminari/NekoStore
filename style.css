@@ -33,6 +33,7 @@ header {
 }
 
 .search-bar {
+  position: relative;
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -43,11 +44,34 @@ header {
   backdrop-filter: blur(4px);
   outline: none;
   max-width: 500px;
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
-.search-bar::placeholder {
-  color: #bbb;
+/* Pseudo-elemento para animação da barra */
+.search-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #b03fff, #ff9bff);
+  transition: width 0.3s ease;
+  border-radius: 20px;
+  z-index: -1;
 }
+
+.search-bar:hover::after {
+  width: 100%;
+}
+
+/* Quando focar (clicar ou tocar), borda traçada com brilho */
+.search-bar:focus {
+  border: 2px dashed #b03fff;
+  box-shadow: 0 0 8px #b03fff;
+}
+
 
 .actions {
   display: flex;
