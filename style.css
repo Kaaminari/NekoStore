@@ -273,6 +273,86 @@ main {
   opacity: 1;
 }
 
+.produto-card {
+  position: relative;
+  width: 200px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  overflow: hidden;
+  transition: 0.3s;
+  padding: 10px;
+  color: white;
+}
+
+.produto-card:hover {
+  border-color: #a020f0;
+  box-shadow: 0 0 15px #a020f0;
+}
+
+.imagem-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imagem-container img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.desconto {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #5f00ba;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 3px 7px;
+  border-radius: 8px;
+}
+
+.produto-nome {
+  font-size: 14px;
+  margin: 8px 0 4px;
+  text-transform: uppercase;
+}
+
+.tag-entrega {
+  display: inline-flex;
+  align-items: center;
+  background: #7a34ff;
+  color: white;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 2px 8px;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.tag-entrega img {
+  width: 14px;
+  height: 14px;
+}
+
+.preco {
+  font-size: 13px;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.preco-atual {
+  display: block;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+
 /* Produtos */
 .produtos {
   display: grid;
