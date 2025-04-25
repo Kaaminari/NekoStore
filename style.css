@@ -48,7 +48,7 @@ header {
   z-index: 1;
 }
 
-/* Animação da barra embaixo ao passar o mouse */
+/* Linha gradiente embaixo e fundo mais claro ao passar o mouse */
 .search-bar::after {
   content: "";
   position: absolute;
@@ -62,17 +62,19 @@ header {
   pointer-events: none;
 }
 
+.search-bar:hover {
+  background: rgba(255, 255, 255, 0.1); /* fundo mais claro */
+}
+
 .search-bar:hover::after {
   width: 100%;
 }
 
-/* Borda traçada roxa com brilho (não picotada, mais suave) */
+/* Borda sólida roxa com brilho ao focar */
 .search-bar:focus {
-  border: 2px dashed rgba(176, 63, 255, 0.8); /* tom suave de roxo */
+  border: 2px solid rgba(176, 63, 255, 0.9);
   box-shadow: 0 0 8px rgba(176, 63, 255, 0.6);
 }
-
-
 
 .actions {
   display: flex;
