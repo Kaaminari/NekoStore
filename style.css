@@ -55,7 +55,6 @@ header {
   gap: 12px;
 }
 
-/* Botão "Fazer login" com borda traçada */
 .login-button {
   position: relative;
   background: linear-gradient(to bottom, #a74bff, #7d19f8);
@@ -66,7 +65,7 @@ header {
   cursor: pointer;
   overflow: hidden;
   transition: transform 0.2s ease;
-  border: 2px solid transparent; /* Borda invisível inicialmente */
+  /* sem border aqui */
 }
 
 .login-button::before {
@@ -76,7 +75,7 @@ header {
   bottom: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* Barra translúcida */
+  background: rgba(255, 255, 255, 0.2);
   transition: bottom 0.4s ease;
   z-index: 0;
 }
@@ -85,15 +84,16 @@ header {
   bottom: 0;
 }
 
-.login-button:hover {
-  transform: scale(1.05);
-  border: 2px solid rgba(112, 0, 255, 0.8); /* Borda visível ao passar o mouse */
-}
-
 .login-button span {
   position: relative;
   z-index: 1;
 }
+
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 0 2px rgba(112, 0, 255, 0.8);
+}
+
 
 /* Botão de carrinho transformado */
 .cart-button {
