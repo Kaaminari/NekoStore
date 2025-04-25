@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -5,42 +6,47 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: radial-gradient(circle at top center, #1a001a, #000);
-  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0e0018;
+  color: white;
   padding: 20px;
 }
 
 header {
+  background: rgba(58, 7, 88, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1f0022;
-  padding: 15px 30px;
-  border-radius: 10px;
+  gap: 16px;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #d85cff;
+.top-bar img {
+  height: 30px;
+  border-radius: 8px;
 }
 
 .search-bar {
-  background: rgba(58, 7, 88, 0.5); /* fundo roxo escuro translúcido */
-  backdrop-filter: blur(6px);       /* efeito de desfoque */
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
   border: none;
-  border-radius: 18px;              /* cantos bem arredondados */
+  border-radius: 12px;
   padding: 10px 20px;
   color: white;
-  width: 100%;
-  max-width: 400px;
   font-size: 16px;
+  backdrop-filter: blur(4px);
   outline: none;
+  max-width: 500px;
 }
 
 .search-bar::placeholder {
-  color: #ccc;                      /* cor do placeholder */
+  color: #bbb;
 }
 
 .actions {
@@ -50,10 +56,9 @@ header {
 }
 
 .login-button {
-  background: rgba(58, 7, 88, 0.5);
-  backdrop-filter: blur(6px);
+  background: rgba(112, 0, 255, 0.2);
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 8px 16px;
   color: white;
   font-size: 15px;
@@ -62,63 +67,84 @@ header {
 }
 
 .login-button:hover {
-  background: rgba(58, 7, 88, 0.7);
+  background: rgba(112, 0, 255, 0.4);
 }
 
 .cart-icon {
   height: 28px;
   cursor: pointer;
 }
+
+/* Seções */
 main {
-  margin-top: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.categorias {
+  margin-bottom: 30px;
 }
 
 .categorias h2 {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 15px;
 }
 
 .categoria-lista {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .categoria {
-  background: #2f003a;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  min-width: 120px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 18px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
+.categoria:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Produtos */
 .produtos {
-  margin-top: 40px;
-  display: flex;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .produto {
-  background: #38004a;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  width: 180px;
-  box-shadow: 0 0 10px #aa00ff55;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s;
 }
 
-.produto .desconto {
-  color: #ff66ff;
+.produto:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.produto h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.desconto {
+  color: #ff4e9b;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.preco {
+  font-size: 16px;
   font-weight: bold;
 }
 
-.produto .preco {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #00ffcc;
-}
-
-.produto.esgotado {
-  background: #222;
-  color: #aaa;
+.esgotado {
+  opacity: 0.6;
+  text-align: center;
 }
