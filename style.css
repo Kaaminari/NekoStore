@@ -33,7 +33,6 @@ header {
 }
 
 .search-bar {
-  position: relative;
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
   border: none;
@@ -44,36 +43,10 @@ header {
   backdrop-filter: blur(4px);
   outline: none;
   max-width: 500px;
-  transition: all 0.3s ease;
-  z-index: 1;
 }
 
-/* Linha gradiente embaixo e fundo mais claro ao passar o mouse */
-.search-bar::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, #b03fff, #ff9bff);
-  transition: width 0.3s ease;
-  border-radius: 20px;
-  pointer-events: none;
-}
-
-.search-bar:hover {
-  background: rgba(255, 255, 255, 0.1); /* fundo mais claro */
-}
-
-.search-bar:hover::after {
-  width: 100%;
-}
-
-/* Borda sólida roxa com brilho ao focar */
-.search-bar:focus {
-  border: 2px solid rgba(176, 63, 255, 0.9);
-  box-shadow: 0 0 8px rgba(176, 63, 255, 0.6);
+.search-bar::placeholder {
+  color: #bbb;
 }
 
 .actions {
@@ -82,18 +55,18 @@ header {
   gap: 12px;
 }
 
+/* Botão "Fazer login" */
 .login-button {
   position: relative;
   background: linear-gradient(to bottom, #a74bff, #7d19f8);
+  border: 2px dashed rgba(112, 0, 255, 0.6); /* Borda traçada */
   color: white;
   font-weight: bold;
   padding: 10px 16px;
   border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.2s ease;
-  border: none; /* Remover qualquer borda padrão */
-  outline: none; /* Remover qualquer outline padrão */
+  transition: transform 0.2s ease, border 0.2s ease;
 }
 
 .login-button::before {
@@ -103,7 +76,7 @@ header {
   bottom: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2); /* Barra translúcida */
   transition: bottom 0.4s ease;
   z-index: 0;
 }
@@ -112,17 +85,15 @@ header {
   bottom: 0;
 }
 
+.login-button:hover {
+  transform: scale(1.05);
+  border-color: rgba(112, 0, 255, 0.8); /* Alteração da cor da borda */
+}
+
 .login-button span {
   position: relative;
   z-index: 1;
 }
-
-.login-button:hover {
-  transform: scale(1.05);
-  box-shadow: inset 0 0 0 2px rgba(112, 0, 255, 0.8); /* Borda visível só no hover */
-}
-
-
 
 /* Botão de carrinho transformado */
 .cart-button {
@@ -163,42 +134,6 @@ header {
   z-index: 1;
 }
 
-.logo-container {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.logo-img {
-  height: 50px;
-  transition: transform 0.3s ease;
-}
-
-.logo-container:hover .logo-img {
-  transform: scale(1.1);
-}
-
-.logo-text {
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff5ec4;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-.logo-container:hover .logo-text {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
-}
-
 /* Seções */
 main {
   max-width: 900px;
@@ -212,21 +147,6 @@ main {
 .categorias h2 {
   font-size: 24px;
   margin-bottom: 15px;
-}
-
-.produto-card.esgotado {
-  opacity: 0.6;
-  position: relative;
-}
-
-.tag-esgotado {
-  background: #ff4444;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 6px;
-  border-radius: 8px;
-  margin-top: 8px;
 }
 
 .categoria-lista {
@@ -247,133 +167,11 @@ main {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.category-card {
-  position: relative;
-  width: 180px;
-  height: 240px;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 0 0 2px transparent;
-}
-
-.category-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: filter 0.3s ease;
-}
-
-.category-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(161, 0, 255, 0.4), rgba(0, 0, 0, 0.5));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 12px;
-}
-
-.category-card:hover,
-.category-card:active {
-  box-shadow: 0 0 0 2px #a100ff;
-}
-
-.category-card:hover .category-overlay,
-.category-card:active .category-overlay {
-  opacity: 1;
-}
-
-.produto-card {
-  position: relative;
-  width: 200px;
-  background: #1a1a1a;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  overflow: hidden;
-  transition: 0.3s;
-  padding: 10px;
-  color: white;
-}
-
-.produto-card:hover {
-  border-color: #a020f0;
-  box-shadow: 0 0 15px #a020f0;
-}
-
-.imagem-container {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.imagem-container img {
-  width: 100%;
-  display: block;
-  border-radius: 8px;
-}
-
-.desconto {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: #5f00ba;
-  color: white;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 3px 7px;
-  border-radius: 8px;
-}
-
-.produto-nome {
-  font-size: 14px;
-  margin: 8px 0 4px;
-  text-transform: uppercase;
-}
-
-.tag-entrega {
-  display: inline-flex;
-  align-items: center;
-  background: #7a34ff;
-  color: white;
-  font-size: 12px;
-  border-radius: 10px;
-  padding: 2px 8px;
-  gap: 5px;
-  margin-bottom: 6px;
-}
-
-.tag-entrega img {
-  width: 14px;
-  height: 14px;
-}
-
-.preco {
-  font-size: 13px;
-}
-
-.preco-antigo {
-  text-decoration: line-through;
-  color: #aaa;
-}
-
-.preco-atual {
-  display: block;
-  font-weight: bold;
-  color: white;
-  font-size: 16px;
-}
-
 /* Produtos */
 .produtos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
-  justify-content: center; /* centraliza a linha com menos itens */
-  gap: 15px; /* controla a distância entre os cards */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .produto {
