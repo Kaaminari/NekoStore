@@ -232,6 +232,47 @@ main {
   background: rgba(255, 255, 255, 0.15);
 }
 
+.category-card {
+  position: relative;
+  width: 180px;
+  height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 0 2px transparent;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(161, 0, 255, 0.4), rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+}
+
+.category-card:hover,
+.category-card:active {
+  box-shadow: 0 0 0 2px #a100ff;
+}
+
+.category-card:hover .category-overlay,
+.category-card:active .category-overlay {
+  opacity: 1;
+}
+
 /* Produtos */
 .produtos {
   display: grid;
