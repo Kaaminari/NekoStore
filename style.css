@@ -27,12 +27,20 @@ header {
 }
 
 .search-bar {
-  width: 40%;
-  padding: 10px;
-  border-radius: 10px;
+  background: rgba(58, 7, 88, 0.5); /* fundo roxo escuro translúcido */
+  backdrop-filter: blur(6px);       /* efeito de desfoque */
   border: none;
-  background: #2a0032;
-  color: #fff;
+  border-radius: 12px;              /* cantos bem arredondados */
+  padding: 10px 20px;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #ccc;                      /* cor do placeholder */
 }
 
 .login-btn, .cart {
