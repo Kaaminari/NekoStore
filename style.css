@@ -59,14 +59,14 @@ header {
 .login-button {
   position: relative;
   background: linear-gradient(to bottom, #a74bff, #7d19f8);
-  border: none;
+  border: 2px dashed rgba(112, 0, 255, 0.6); /* Borda traçada */
   color: white;
   font-weight: bold;
   padding: 10px 16px;
   border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border 0.2s ease;
 }
 
 .login-button::before {
@@ -85,24 +85,25 @@ header {
   bottom: 0;
 }
 
+.login-button:hover {
+  transform: scale(1.05);
+  border-color: rgba(112, 0, 255, 0.8); /* Alteração da cor da borda */
+}
+
 .login-button span {
   position: relative;
   z-index: 1;
-}
-
-.login-button:hover {
-  transform: scale(1.05);
 }
 
 /* Botão de carrinho transformado */
 .cart-button {
   position: relative;
   background: rgba(112, 0, 255, 0.2);
-  border: none;
+  border: 2px dashed rgba(112, 0, 255, 0.6); /* Borda traçada */
   padding: 8px;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, border 0.2s ease;
   overflow: hidden;
 }
 
@@ -122,14 +123,15 @@ header {
   bottom: 0;
 }
 
+.cart-button:hover {
+  background: rgba(112, 0, 255, 0.4);
+  border-color: rgba(112, 0, 255, 0.8); /* Alteração da cor da borda */
+}
+
 .cart-icon {
   height: 28px;
   filter: brightness(0) invert(1); /* Deixa o ícone branco */
   z-index: 1;
-}
-
-.cart-button:hover {
-  background: rgba(112, 0, 255, 0.4);
 }
 
 /* Seções */
