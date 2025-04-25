@@ -55,35 +55,82 @@ header {
   gap: 12px;
 }
 
+/* Botão "Fazer login" */
 .login-button {
-  background: rgba(112, 0, 255, 0.2);
+  position: relative;
+  background: linear-gradient(to bottom, #a74bff, #7d19f8);
   border: none;
-  border-radius: 10px;
-  padding: 8px 16px;
   color: white;
-  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.login-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Barra translúcida */
+  transition: bottom 0.4s ease;
+  z-index: 0;
+}
+
+.login-button:hover::before {
+  bottom: 0;
+}
+
+.login-button span {
+  position: relative;
+  z-index: 1;
 }
 
 .login-button:hover {
-  background: rgba(112, 0, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Botão de carrinho transformado */
+.cart-button {
+  position: relative;
+  background: rgba(112, 0, 255, 0.2);
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  overflow: hidden;
+}
+
+.cart-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Barra translúcida */
+  transition: bottom 0.4s ease;
+  z-index: 0;
+}
+
+.cart-button:hover::before {
+  bottom: 0;
 }
 
 .cart-icon {
   height: 28px;
-  padding: 8px;
-  background: rgba(112, 0, 255, 0.2);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.2s;
   filter: brightness(0) invert(1); /* Deixa o ícone branco */
+  z-index: 1;
 }
 
-.cart-icon:hover {
+.cart-button:hover {
   background: rgba(112, 0, 255, 0.4);
 }
-
 
 /* Seções */
 main {
