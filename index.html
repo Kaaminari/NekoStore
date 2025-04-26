@@ -62,6 +62,32 @@
       }
     }
 
+
+.modal, .overlay {
+  display: none;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 2;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 3;
+}
+
+
     .conteudo {
       position: relative;
       z-index: 1;
@@ -82,7 +108,7 @@
       </div>
       <input type="text" placeholder="Procure pelo nome do produto" class="search-bar"/>
       <div class="actions">
-       <button class="login-button"><span>Fazer login</span></button>
+       <button class="login-button" onclick="abrirModal()"><span>Fazer login</span></button>
         <button class="cart-button">
           <span><img src="imagens/carrinho.png" class="cart-icon" /></span> 
         </button>
@@ -189,32 +215,28 @@
   </section>
 
   <script>
-function abrirModal() {
-  document.getElementById('modal-login').style.display = 'block';
-  document.getElementById('overlay').style.display = 'block';
-}
-
-function fecharModal() {
-  document.getElementById('modal-login').style.display = 'none';
-  document.getElementById('overlay').style.display = 'none';
-}
-
-function trocarParaLogin() {
-  alert('Aqui iria a tela de login. Ainda não foi implementada!');
-}
-
-function fazerCadastro() {
-  const nome = document.getElementById('novo-usuario').value;
-  const email = document.getElementById('novo-email').value;
-  const senha = document.getElementById('nova-senha').value;
-
-  if (nome && email && senha) {
-    alert(`Cadastro feito com sucesso para ${nome}`);
-    fecharModal();
-  } else {
-    alert("Preencha todos os campos.");
+<script>
+  function abrirModal() {
+    document.getElementById("modal-login").style.display = "flex";
+    document.getElementById("overlay").style.display = "block";
   }
-}
+
+  function fecharModal() {
+    document.getElementById("modal-login").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  function fazerCadastro() {
+    // aqui você coloca o que quiser, tipo validar ou enviar dados
+    alert("Cadastro feito!");
+    fecharModal();
+  }
+
+  function trocarParaLogin() {
+    alert("Função de login ainda não implementada.");
+  }
+</script>
+
 
     const container = document.querySelector('.neve-container');
 
