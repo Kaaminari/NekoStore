@@ -91,6 +91,15 @@
   </header>
 
   <main>
+<section class="login-section" id="login-section" style="display: none;">
+  <div class="login-box">
+    <h2>Entrar na conta</h2>
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="fazerLogin()">Login</button>
+    <p id="mensagem-login" style="color: pink; margin-top: 10px;"></p>
+  </div>
+</section>
     <section class="categorias">
       <h2>Categorias Populares</h2>
       <div class="categoria-lista">
@@ -171,6 +180,29 @@
   </section>
 
   <script>
+const loginBtn = document.querySelector('.login-button');
+const loginSection = document.getElementById('login-section');
+
+loginBtn.addEventListener('click', () => {
+  loginSection.style.display = loginSection.style.display === 'none' ? 'block' : 'none';
+});
+
+function fazerLogin() {
+  const usuario = document.getElementById('username').value;
+  const senha = document.getElementById('password').value;
+  const mensagem = document.getElementById('mensagem-login');
+
+  // Exemplo simples: user = admin / senha = 1234
+  if (usuario === "admin" && senha === "1234") {
+    mensagem.textContent = "Login bem-sucedido!";
+    mensagem.style.color = "lightgreen";
+    loginSection.style.display = "none";
+  } else {
+    mensagem.textContent = "Usuário ou senha incorretos.";
+    mensagem.style.color = "pink";
+  }
+}
+
     const container = document.querySelector('.neve-container');
 
     function criarFloco() {
