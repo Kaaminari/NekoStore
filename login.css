@@ -1,0 +1,58 @@
+.login-modal {
+  width: 400px;
+  padding: 30px;
+  background: #111015;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-modal h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login-modal input {
+  background: #1c1b20;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+}
+
+.login-modal input::placeholder {
+  color: #aaa;
+}
+
+.login-modal button {
+  background: linear-gradient(90deg, #ff69b4, #ff3cac);
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-modal button:hover {
+  filter: brightness(1.1);
+}
+
+.cadastro-msg {
+  font-size: 13px;
+  color: #bbb;
+  text-align: center;
+}
+
+.cadastro-msg a {
+  color: #ff69b4;
+  text-decoration: none;
+  font-weight: 500;
+}
