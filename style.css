@@ -261,7 +261,7 @@ main {
 
 .produto-card {
   position: relative;
-  width: 200px;
+  width: 230px;
   overflow: hidden;
   background: transparent;
   border: 2px dashed #a020f0; /* borda traçada padrão */
