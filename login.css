@@ -1,83 +1,68 @@
-/* Modal e overlay */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  z-index: 1000;
+  color: white;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #2b2b2b;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+.modal .botao-principal {
+  background-color: #d34aff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal .fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
   display: none;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #111;
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
-  z-index: 99;
-  max-width: 350px;
-  width: 90%;
-  display: none;
-  text-align: center;
-  color: white;
-}
-
-.modal input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 8px;
-  border: none;
-  background: #222;
-  color: white;
-  outline: none;
-}
-
-.botao-principal {
-  width: 100%;
-  background: hotpink;
-  color: white;
-  border: none;
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.botao-principal:hover {
-  background: #ff4fc0;
-}
-
-.fechar {
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #aaa;
-}
-
-.link-login {
-  color: hotpink;
-  cursor: pointer;
-  text-decoration: underline;
 }
 
 .termos {
+  font-size: 0.9rem;
+  color: #bbb;
   margin-top: 10px;
-  font-size: 12px;
-  color: #777;
+  text-align: center;
 }
 
 .destaque {
-  color: hotpink;
+  color: #d34aff;
   cursor: pointer;
 }
