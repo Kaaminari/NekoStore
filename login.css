@@ -1,28 +1,83 @@
-.login-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 300px;
-  margin: 50px auto;
+/* Modal e overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 98;
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #111;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
+  z-index: 99;
+  max-width: 350px;
+  width: 90%;
+  display: none;
   text-align: center;
-  box-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
   color: white;
 }
 
-.login-box input {
+.modal input {
   width: 100%;
-  margin: 10px 0;
-  padding: 8px;
+  padding: 10px;
+  margin-top: 10px;
   border-radius: 8px;
   border: none;
+  background: #222;
+  color: white;
   outline: none;
 }
 
-.login-box button {
-  padding: 10px 20px;
-  background-color: pink;
+.botao-principal {
+  width: 100%;
+  background: hotpink;
+  color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 10px;
   font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botao-principal:hover {
+  background: #ff4fc0;
+}
+
+.fechar {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #aaa;
+}
+
+.link-login {
+  color: hotpink;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.termos {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #777;
+}
+
+.destaque {
+  color: hotpink;
+  cursor: pointer;
 }
