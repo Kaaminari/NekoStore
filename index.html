@@ -7,40 +7,15 @@
   <link rel="icon" type="image/png" href="imagens/icon.png">
   <link rel="stylesheet" href="style.css" />
   <style>
-.modal, .overlay {
-  display: none;
-}
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 2;
-}
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #333;
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  z-index: 3;
-}
-
+    /* Estilos gerais */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body, html {
       height: 100%;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -55,6 +30,7 @@
       z-index: -1;
     }
 
+    /* Estilos da neve */
     .neve-container {
       position: fixed;
       top: 0;
@@ -65,7 +41,6 @@
       z-index: 1;
       overflow: hidden;
     }
-
     .floco {
       position: absolute;
       top: -10px;
@@ -76,16 +51,40 @@
       opacity: 0.8;
       animation: cair 8s linear infinite;
     }
-
     @keyframes cair {
-      0% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-      100% {
-        transform: translate(100px, 100vh) rotate(360deg);
-      }
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(100px, 100vh) rotate(360deg); }
     }
 
+    /* Estilos do modal */
+    .modal, .overlay {
+      display: none;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #333;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Estilo do conteúdo */
     .conteudo {
       position: relative;
       z-index: 1;
@@ -96,43 +95,46 @@
     }
   </style>
 </head>
+
 <body>
   <div class="neve-container"></div>
+
   <header>
     <div class="top-bar">
       <div class="logo-container">
         <img src="imagens/icon.png" alt="Logo" class="logo-img" style="height: 30px; border-radius: 8px;" />
         <div class="logo-text">Neko Store #1</div>
       </div>
-      <input type="text" placeholder="Procure pelo nome do produto" class="search-bar"/>
+      <input type="text" placeholder="Procure pelo nome do produto" class="search-bar" />
       <div class="actions">
-       <button class="login-button" onclick="abrirModal()"><span>Fazer login</span></button>
+        <button class="login-button" onclick="abrirModal()"><span>Fazer login</span></button>
         <button class="cart-button">
-          <span><img src="imagens/carrinho.png" class="cart-icon" /></span> 
+          <span><img src="imagens/carrinho.png" class="cart-icon" /></span>
         </button>
       </div>
     </div>
   </header>
 
   <main>
-<div class="overlay" id="overlay" onclick="fecharModal()"></div>
+    <div class="overlay" id="overlay" onclick="fecharModal()"></div>
 
-<div class="modal" id="modal-login">
-  <span class="fechar" onclick="fecharModal()">✕</span>
-  <h2>Fazer cadastro</h2>
+    <div class="modal" id="modal-login">
+      <span class="fechar" onclick="fecharModal()">✕</span>
+      <h2>Fazer cadastro</h2>
 
-  <input type="text" id="novo-usuario" placeholder="Nome de usuário">
-  <input type="email" id="novo-email" placeholder="Endereço de e-mail">
-  <input type="password" id="nova-senha" placeholder="Senha">
+      <input type="text" id="novo-usuario" placeholder="Nome de usuário">
+      <input type="email" id="novo-email" placeholder="Endereço de e-mail">
+      <input type="password" id="nova-senha" placeholder="Senha">
 
-  <button class="botao-principal" onclick="fazerCadastro()">Continuar</button>
+      <button class="botao-principal" onclick="fazerCadastro()">Continuar</button>
 
-  <p style="color: white; margin-top: 15px;">
-    Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
-  </p>
+      <p style="color: white; margin-top: 15px;">
+        Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
+      </p>
 
-  <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
-</div>
+      <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
+    </div>
+
     <section class="categorias">
       <h2>Categorias Populares</h2>
       <div class="categoria-lista">
@@ -141,13 +143,11 @@
           <div class="category-overlay"></div>
           <div class="category-title">Assinaturas</div>
         </div>
-
         <div class="category-card">
           <img src="imagens/roblox.png" alt="Roblox">
           <div class="category-overlay"></div>
           <div class="category-title">Roblox</div>
         </div>
-
         <div class="category-card">
           <img src="imagens/metodos.png" alt="Outros Métodos">
           <div class="category-overlay"></div>
@@ -155,86 +155,82 @@
         </div>
       </div>
     </section>
+
+    <section class="produtos">
+      <div class="produto-card">
+        <div class="imagem-container">
+          <img src="imagens/image.jpg" alt="Accs Roblox">
+          <span class="desconto">-67%</span>
+        </div>
+        <h3 class="produto-nome">Accs Roblox</h3>
+        <div class="tag-entrega">
+          <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+        </div>
+        <div class="preco">
+          <span class="preco-antigo">De R$ 20,50 por:</span>
+          <span class="preco-atual">R$ 15,00</span>
+        </div>
+      </div>
+
+      <div class="produto-card">
+        <div class="imagem-container">
+          <img src="imagens/image2.jpg" alt="Metodo Robux">
+          <span class="desconto">-66%</span>
+        </div>
+        <h3 class="produto-nome">Metodo Robux</h3>
+        <div class="tag-entrega">
+          <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+        </div>
+        <div class="preco">
+          <span class="preco-antigo">De R$ 10,99 por:</span>
+          <span class="preco-atual">R$ 5,00</span>
+        </div>
+      </div>
+
+      <div class="produto-card">
+        <div class="imagem-container">
+          <img src="imagens/image3.png" alt="DC NITRO">
+          <span class="desconto">-66%</span>
+        </div>
+        <h3 class="produto-nome">DC NITRO</h3>
+        <div class="tag-entrega">
+          <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+        </div>
+        <div class="preco">
+          <span class="preco-antigo">De R$ 19,99 por:</span>
+          <span class="preco-atual">R$ 8,99</span>
+        </div>
+      </div>
+
+      <div class="produto-card">
+        <div class="imagem-container esgotado">
+          <img src="imagens/image2.jpg" alt="Roleta Métodos">
+          <div class="overlay-esgotado">Estoque esgotado</div>
+        </div>
+        <h3 class="produto-nome">Roleta Métodos</h3>
+      </div>
+    </section>
   </main>
 
-  <section class="produtos">
-    <div class="produto-card">
-      <div class="imagem-container">
-        <img src="imagens/image.jpg" alt="Caixa Pix">
-        <span class="desconto">-67%</span>
-      </div>
-      <h3 class="produto-nome">Accs Roblox</h3>
-      <div class="tag-entrega">
-        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-      </div>
-      <div class="preco">
-        <span class="preco-antigo">De R$ 20,50 por:</span>
-        <span class="preco-atual">R$ 15,00</span>
-      </div>
-    </div>
-
-    <div class="produto-card">
-      <div class="imagem-container">
-        <img src="imagens/image2.jpg" alt="Roleta Assinaturas">
-        <span class="desconto">-66%</span>
-      </div>
-      <h3 class="produto-nome">Metodo Robux</h3>
-      <div class="tag-entrega">
-        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-      </div>
-      <div class="preco">
-        <span class="preco-antigo">De R$ 10,99 por:</span>
-        <span class="preco-atual">R$ 5,00</span>
-      </div>
-    </div>
-
-    <div class="produto-card">
-      <div class="imagem-container">
-        <img src="imagens/image3.png" alt="Dc nitro">
-        <span class="desconto">-66%</span>
-      </div>
-      <h3 class="produto-nome">DC NITRO</h3>
-      <div class="tag-entrega">
-        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-      </div>
-      <div class="preco">
-        <span class="preco-antigo">De R$ 19,99 por:</span>
-        <span class="preco-atual">R$ 8,99</span>
-      </div>
-    </div>
-
-    <div class="produto-card">
-      <div class="imagem-container esgotado">
-        <img src="imagens/image2.jpg" alt="Roleta Métodos">
-        <div class="overlay-esgotado">Estoque esgotado</div>
-      </div>
-      <h3 class="produto-nome">Roleta Métodos</h3>
-    </div>
-  </section>
-
   <script>
-<script>
-  function abrirModal() {
-    document.getElementById("modal-login").style.display = "flex";
-    document.getElementById("overlay").style.display = "block";
-  }
+    function abrirModal() {
+      document.getElementById("modal-login").style.display = "flex";
+      document.getElementById("overlay").style.display = "block";
+    }
 
-  function fecharModal() {
-    document.getElementById("modal-login").style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-  }
+    function fecharModal() {
+      document.getElementById("modal-login").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
 
-  function fazerCadastro() {
-    // aqui você coloca o que quiser, tipo validar ou enviar dados
-    alert("Cadastro feito!");
-    fecharModal();
-  }
+    function fazerCadastro() {
+      alert("Cadastro feito!");
+      fecharModal();
+    }
 
-  function trocarParaLogin() {
-    alert("Função de login ainda não implementada.");
-  }
-</script>
-
+    function trocarParaLogin() {
+      alert("Função de login ainda não implementada.");
+    }
 
     const container = document.querySelector('.neve-container');
 
