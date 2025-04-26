@@ -222,7 +222,7 @@ main {
 .category-card {
   position: relative;
   width: 160px;
-  height: 260px;
+  height: 245px;
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease;
