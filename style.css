@@ -343,17 +343,15 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 12px; /* Garante que a imagem siga o border-radius */
+  border-radius: 12px;
 }
 
-.esgotado::before {
-  content: "ESTOQUE ESGOTADO";
+/* Agora usamos uma div para o overlay */
+.overlay-esgotado {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -363,11 +361,8 @@ main {
   text-align: center;
   border-radius: 12px;
   z-index: 2;
-  backdrop-filter: blur(30px); /* Aumentei pra cobrir melhor */
-  pointer-events: none; /* Evita interferência de clique */
+  pointer-events: none;
 }
-
-
 
 .preco {
   font-size: 13px;
