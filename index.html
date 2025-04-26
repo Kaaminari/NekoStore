@@ -6,8 +6,7 @@
   <title>Neko Store</title>
   <link rel="icon" type="image/png" href="imagens/icon.png">
   <link rel="stylesheet" href="style.css" />
-</head>
-   <style>
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -25,43 +24,43 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('imagens/fundo.jpg'); /* ou ./imagem.png se for local */
+      background-image: url('imagens/fundo.jpg');
       background-size: cover;
       background-position: center;
-      filter: blur(6px); /* intensidade do blur */
-      z-index: -1; /* fica atrás de tudo */
+      filter: blur(6px);
+      z-index: -1;
     }
 
-.neve-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .floco {
-    position: absolute;
-    top: -10px;
-    width: 6px;
-    height: 6px;
-    background: pink;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: cair 8s linear infinite;
-  }
-
-  @keyframes cair {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
+    .neve-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
     }
-    100% {
-      transform: translate(100px, 100vh) rotate(360deg);
+
+    .floco {
+      position: absolute;
+      top: -10px;
+      width: 6px;
+      height: 6px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: cair 8s linear infinite;
     }
-  }
+
+    @keyframes cair {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate(100px, 100vh) rotate(360deg);
+      }
+    }
 
     .conteudo {
       position: relative;
@@ -72,125 +71,121 @@
       font-family: sans-serif;
     }
   </style>
+</head>
 <body>
-<div class="neve-container"></div>
+  <div class="neve-container"></div>
   <header>
     <div class="top-bar">
-<div class="logo-container">
-  <img src="imagens/icon.png" alt="Logo" class="logo-img" style="height: 30px; border-radius: 8px;" />
-  <div class="logo-text">Neko Store #1</div>
-</div>
-    <input  type="text" placeholder="Procure pelo nome do produto" class="search-bar"/>
-    <div class="actions">
-    <button class="login-button"><span>Fazer login</span></button>
-    <button class="cart-button">
-     <span><img src="imagens/carrinho.png" class="cart-icon" /></span> 
-    </button
-   </div>
-  </div>
+      <div class="logo-container">
+        <img src="imagens/icon.png" alt="Logo" class="logo-img" style="height: 30px; border-radius: 8px;" />
+        <div class="logo-text">Neko Store #1</div>
+      </div>
+      <input type="text" placeholder="Procure pelo nome do produto" class="search-bar"/>
+      <div class="actions">
+        <button class="login-button"><span>Fazer login</span></button>
+        <button class="cart-button">
+          <span><img src="imagens/carrinho.png" class="cart-icon" /></span> 
+        </button>
+      </div>
+    </div>
   </header>
 
-<main>
-  <section class="categorias">
-    <h2>Categorias Populares</h2>
-    <div class="categoria-lista">
-      <div class="category-card">
-        <img src="imagens/stream.png" alt="Assinaturas">
-        <div class="category-overlay"></div>
-        <div class="category-title">Assinaturas</div>
-      </div>
+  <main>
+    <section class="categorias">
+      <h2>Categorias Populares</h2>
+      <div class="categoria-lista">
+        <div class="category-card">
+          <img src="imagens/stream.png" alt="Assinaturas">
+          <div class="category-overlay"></div>
+          <div class="category-title">Assinaturas</div>
+        </div>
 
-      <div class="category-card">
-        <img src="imagens/roblox.png" alt="Roblox">
-        <div class="category-overlay"></div>
-        <div class="category-title">Roblox</div>
-      </div>
+        <div class="category-card">
+          <img src="imagens/roblox.png" alt="Roblox">
+          <div class="category-overlay"></div>
+          <div class="category-title">Roblox</div>
+        </div>
 
-      <div class="category-card">
-        <img src="imagens/metodos.png" alt="Outros Métodos">
-        <div class="category-overlay"></div>
-        <div class="category-title">Outros métodos</div>
+        <div class="category-card">
+          <img src="imagens/metodos.png" alt="Outros Métodos">
+          <div class="category-overlay"></div>
+          <div class="category-title">Outros métodos</div>
+        </div>
       </div>
+    </section>
+  </main>
+
+  <section class="produtos">
+    <div class="produto-card">
+      <div class="imagem-container">
+        <img src="imagens/image.jpg" alt="Caixa Pix">
+        <span class="desconto">-67%</span>
+      </div>
+      <h3 class="produto-nome">Accs Roblox</h3>
+      <div class="tag-entrega">
+        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+      </div>
+      <div class="preco">
+        <span class="preco-antigo">De R$ 20,50 por:</span>
+        <span class="preco-atual">R$ 15,00</span>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="imagem-container">
+        <img src="imagens/image2.jpg" alt="Roleta Assinaturas">
+        <span class="desconto">-66%</span>
+      </div>
+      <h3 class="produto-nome">Metodo Robux</h3>
+      <div class="tag-entrega">
+        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+      </div>
+      <div class="preco">
+        <span class="preco-antigo">De R$ 10,99 por:</span>
+        <span class="preco-atual">R$ 5,00</span>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="imagem-container">
+        <img src="imagens/image3.png" alt="Dc nitro">
+        <span class="desconto">-66%</span>
+      </div>
+      <h3 class="produto-nome">DC NITRO</h3>
+      <div class="tag-entrega">
+        <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
+      </div>
+      <div class="preco">
+        <span class="preco-antigo">De R$ 19,99 por:</span>
+        <span class="preco-atual">R$ 8,99</span>
+      </div>
+    </div>
+
+    <div class="produto-card">
+      <div class="imagem-container esgotado">
+        <img src="imagens/image2.jpg" alt="Roleta Métodos">
+        <div class="overlay-esgotado">Estoque esgotado</div>
+      </div>
+      <h3 class="produto-nome">Roleta Métodos</h3>
     </div>
   </section>
-</main>
 
-<section class="produtos">
-  <!-- Produto 1 -->
-  <div class="produto-card">
-    <div class="imagem-container">
-      <img src="imagens/image.jpg" alt="Caixa Pix">
-      <span class="desconto">-67%</span>
-    </div>
-    <h3 class="produto-nome">Accs Roblox</h3>
-    <div class="tag-entrega">
-      <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-    </div>
-    <div class="preco">
-      <span class="preco-antigo">De R$ 20,50 por:</span>
-      <span class="preco-atual">R$ 15,00</span>
-    </div>
-  </div>
+  <script>
+    const container = document.querySelector('.neve-container');
 
-  <!-- Produto 2 -->
-  <div class="produto-card">
-    <div class="imagem-container">
-      <img src="imagens/image2.jpg" alt="Roleta Assinaturas">
-      <span class="desconto">-66%</span>
-    </div>
-    <h3 class="produto-nome">Metodo Robux</h3>
-    <div class="tag-entrega">
-      <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-    </div>
-    <div class="preco">
-      <span class="preco-antigo">De R$ 10,99 por:</span>
-      <span class="preco-atual">R$ 5,00</span>
-    </div>
-  </div>
+    function criarFloco() {
+      const floco = document.createElement('div');
+      floco.classList.add('floco');
+      floco.style.left = Math.random() * 100 + 'vw';
+      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
+      container.appendChild(floco);
 
-  <!-- Produto 3 -->
-  <div class="produto-card">
-    <div class="imagem-container">
-      <img src="imagens/image3.png" alt="Dc nitro">
-      <span class="desconto">-66%</span>
-    </div>
-    <h3 class="produto-nome">DC NITRO</h3>
-    <div class="tag-entrega">
-      <img src="imagens/car.jpg" alt="Entrega"> Entrega automática
-    </div>
-    <div class="preco">
-      <span class="preco-antigo">De R$ 19,99 por:</span>
-      <span class="preco-atual">R$ 8,99</span>
-    </div>
-  </div>
-  
-<!-- Produto Esgotado -->
-<div class="produto-card">
-  <div class="imagem-container esgotado">
-    <img src="imagens/image2.jpg" alt="Roleta Métodos">
-    <div class="overlay-esgotado">Estoque esgotado</div> <!-- dentro do container -->
-  </div>
-  <h3 class="produto-nome">Roleta Métodos</h3>
-</div>
-</section>
-<script>
-  const container = document.querySelector('.neve-container');
+      setTimeout(() => {
+        floco.remove();
+      }, 10000);
+    }
 
-  function criarFloco() {
-    const floco = document.createElement('div');
-    floco.classList.add('floco');
-    floco.style.left = Math.random() * 100 + 'vw';
-    floco.style.animationDuration = (6 + Math.random() * 4) + 's';
-    floco.style.opacity = Math.random();
-    floco.style.width = floco.style.height = (3 + Math.random() * 4) + 'px';
-    container.appendChild(floco);
-
-    setTimeout(() => {
-      floco.remove();
-    }, 10000);
-  }
-
-  setInterval(criarFloco, 200);
-</script>
+    setInterval(criarFloco, 200);
+  </script>
 </body>
 </html>
