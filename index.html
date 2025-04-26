@@ -91,15 +91,24 @@
   </header>
 
   <main>
-<section class="login-section" id="login-section" style="display: none;">
-  <div class="login-box">
-    <h2>Entrar na conta</h2>
-    <input type="text" id="username" placeholder="Usuário">
-    <input type="password" id="password" placeholder="Senha">
-    <button onclick="fazerLogin()">Login</button>
-    <p id="mensagem-login" style="color: pink; margin-top: 10px;"></p>
-  </div>
-</section>
+<div class="overlay" id="overlay" onclick="fecharModal()"></div>
+
+<div class="modal" id="modal-login">
+  <span class="fechar" onclick="fecharModal()">✕</span>
+  <h2>Fazer cadastro</h2>
+
+  <input type="text" id="novo-usuario" placeholder="Nome de usuário">
+  <input type="email" id="novo-email" placeholder="Endereço de e-mail">
+  <input type="password" id="nova-senha" placeholder="Senha">
+
+  <button class="botao-principal" onclick="fazerCadastro()">Continuar</button>
+
+  <p style="color: white; margin-top: 15px;">
+    Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
+  </p>
+
+  <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
+</div>
     <section class="categorias">
       <h2>Categorias Populares</h2>
       <div class="categoria-lista">
@@ -180,26 +189,30 @@
   </section>
 
   <script>
-const loginBtn = document.querySelector('.login-button');
-const loginSection = document.getElementById('login-section');
+function abrirModal() {
+  document.getElementById('modal-login').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
+}
 
-loginBtn.addEventListener('click', () => {
-  loginSection.style.display = loginSection.style.display === 'none' ? 'block' : 'none';
-});
+function fecharModal() {
+  document.getElementById('modal-login').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+}
 
-function fazerLogin() {
-  const usuario = document.getElementById('username').value;
-  const senha = document.getElementById('password').value;
-  const mensagem = document.getElementById('mensagem-login');
+function trocarParaLogin() {
+  alert('Aqui iria a tela de login. Ainda não foi implementada!');
+}
 
-  // Exemplo simples: user = admin / senha = 1234
-  if (usuario === "admin" && senha === "1234") {
-    mensagem.textContent = "Login bem-sucedido!";
-    mensagem.style.color = "lightgreen";
-    loginSection.style.display = "none";
+function fazerCadastro() {
+  const nome = document.getElementById('novo-usuario').value;
+  const email = document.getElementById('novo-email').value;
+  const senha = document.getElementById('nova-senha').value;
+
+  if (nome && email && senha) {
+    alert(`Cadastro feito com sucesso para ${nome}`);
+    fecharModal();
   } else {
-    mensagem.textContent = "Usuário ou senha incorretos.";
-    mensagem.style.color = "pink";
+    alert("Preencha todos os campos.");
   }
 }
 
