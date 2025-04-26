@@ -268,7 +268,7 @@ main {
   border-radius: 12px; /* cantos arredondados */
   box-shadow: none;
   transition: 0.3s;
-  gap: 20px; /* aumenta o espaçamento entre os cards */
+  gap: 60px; /* aumenta o espaçamento entre os cards */
   padding: 10px;
   color: white;
 }
