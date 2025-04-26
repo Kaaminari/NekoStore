@@ -215,7 +215,7 @@ main {
 .categoria-lista {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
 }
 
