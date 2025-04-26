@@ -56,43 +56,98 @@
       100% { transform: translate(100px, 100vh) rotate(360deg); }
     }
 
-    /* Estilos do modal */
-    .modal, .overlay {
-      display: none;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 2;
-    }
-    .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #333;
-      color: white;
-      padding: 20px;
-      border-radius: 12px;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+/* Modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0a0a0a;
+  color: white;
+  padding: 30px 25px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
 
-    /* Estilo do conteúdo */
-    .conteudo {
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-align: center;
-      padding-top: 20%;
-      font-family: sans-serif;
-    }
+/* Inputs */
+.modal input {
+  background: #111;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.modal input:focus {
+  border-color: #ff69b4;
+}
+
+/* Botão Principal */
+.botao-principal {
+  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.botao-principal::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: top 0.4s ease;
+  z-index: 1;
+}
+
+.botao-principal:hover::before {
+  top: 0;
+}
+
+.botao-principal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #ff69b4;
+}
+
+/* Texto no botão sempre acima da animação */
+.botao-principal span, .botao-principal {
+  position: relative;
+  z-index: 2;
+}
+
+/* Fechar Modal */
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Texto Link para login */
+.link-login {
+  color: #ff69b4;
+  cursor: pointer;
+}
+.link-login:hover {
+  text-decoration: underline;
+}
   </style>
 </head>
 
@@ -107,7 +162,7 @@
       </div>
       <input type="text" placeholder="Procure pelo nome do produto" class="search-bar" />
       <div class="actions">
-        <button class="login-button" onclick="abrirModal()"><span>Fazer login</span></button>
+        <button class="botao-principal" onclick="fazerCadastro()"><span>Fazer login</span></button>
         <button class="cart-button">
           <span><img src="imagens/carrinho.png" class="cart-icon" /></span>
         </button>
