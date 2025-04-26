@@ -261,14 +261,14 @@ main {
 
 .produto-card {
   position: relative;
-  width: 230px;
+  width: 200px;
   overflow: hidden;
   background: transparent;
   border: 2px dashed #a020f0; /* borda traçada padrão */
   border-radius: 12px; /* cantos arredondados */
   box-shadow: none;
   transition: 0.3s;
-  padding: 20px;
+  padding: 10px;
   color: white;
 }
 
