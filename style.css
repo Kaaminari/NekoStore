@@ -215,8 +215,15 @@ main {
 .categoria-lista {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
+}
+
+/* ADICIONE AQUI 👇 */
+.categoria-item {
+  flex: 1 1 150px;
+  max-width: 200px;
+  min-width: 100px;
 }
 
 .category-card {
