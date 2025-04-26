@@ -360,7 +360,6 @@ main {
   height: 100%;
   object-fit: cover;
   display: block;
-  z-index: 1;
 }
 
 
