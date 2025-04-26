@@ -1,4 +1,4 @@
-/* Reset básico */
+        /* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -363,7 +363,7 @@ main {
   text-align: center;
   border-radius: 12px;
   z-index: 2;
-  backdrop-filter: blur(8px); /* Aumentei pra cobrir melhor */
+  backdrop-filter: blur(9px); /* Aumentei pra cobrir melhor */
   pointer-events: none; /* Evita interferência de clique */
 }
 
