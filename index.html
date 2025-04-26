@@ -56,8 +56,20 @@
       100% { transform: translate(100px, 100vh) rotate(360deg); }
     }
 
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Modal */
 .modal {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -68,11 +80,15 @@
   border: 1px solid #333;
   border-radius: 12px;
   z-index: 3;
-  display: none;
   flex-direction: column;
   gap: 15px;
   width: 300px;
   box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+/* Quando o modal abrir, ele vai animar */
+.modal.show {
+  animation: zoomIn 0.3s ease;
 }
 
 /* Inputs */
@@ -268,10 +284,16 @@
   </main>
 
   <script>
-    function abrirModal() {
-      document.getElementById("modal-login").style.display = "flex";
-      document.getElementById("overlay").style.display = "block";
-    }
+function abrirModal() {
+  const modal = document.getElementById("modal-login");
+  const overlay = document.getElementById("overlay");
+
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+
+  // Adiciona a animação
+  modal.classList.add("show");
+}
 
     function fecharModal() {
       document.getElementById("modal-login").style.display = "none";
