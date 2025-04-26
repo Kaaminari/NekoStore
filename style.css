@@ -346,11 +346,6 @@ main {
   border-radius: 12px;
 }
 
-.produto-card {
-  width: 180px;
-  height: 260px;
-}
-
 .overlay-esgotado {
   position: absolute;
   top: 0;
