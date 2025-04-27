@@ -270,30 +270,34 @@
     <p class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
 
 <!-- Modal dos Termos -->
-<div id="modal-termos" class="modal" style="display: none; width: 80%; max-width: 800px;">
+<div id="modal-termos" class="modal" style="display: none; width: 90%; max-width: 1200px;">
   <span class="fechar" onclick="fecharTermos()">✕</span>
   <h2>Termos de Serviço</h2>
   
-  <div class="termos-conteudo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-height: 500px;">
-    <div>
-      <h3>1. Aceitação dos Termos</h3>
-      <p>Ao utilizar nossos serviços, você concorda com estes termos.</p>
-
-      <h3>2. Política de Não Reembolso</h3>
-      <p>Todos os produtos são digitais e entregues automaticamente. Não oferecemos reembolso após a entrega do produto.</p>
+  <div class="termos-conteudo" style="display: flex; flex-direction: row; gap: 30px; padding: 20px;">
+    <div style="flex: 1;">
+      <h3>1. Aceite dos Termos</h3>
+      <p>Ao usar nossos serviços, você aceita estes termos.</p>
     </div>
     
-    <div>
-      <h3>3. Responsabilidades</h3>
-      <p>O usuário é responsável por manter suas credenciais seguras e por todas as atividades realizadas em sua conta.</p>
-
+    <div style="flex: 1;">
+      <h3>2. Sem Reembolso</h3>
+      <p>Produtos digitais com entrega automática não têm reembolso.</p>
+    </div>
+    
+    <div style="flex: 1;">
+      <h3>3. Suas Responsabilidades</h3>
+      <p>Mantenha suas credenciais seguras. Você é responsável por sua conta.</p>
+    </div>
+    
+    <div style="flex: 1;">
       <h3>4. Uso dos Produtos</h3>
-      <p>Os produtos são para uso pessoal. É proibida a revenda ou distribuição não autorizada.</p>
+      <p>Apenas uso pessoal permitido. Proibido revender.</p>
     </div>
     
-    <div>
+    <div style="flex: 1;">
       <h3>5. Disponibilidade</h3>
-      <p>Não garantimos disponibilidade contínua dos serviços. Podemos realizar manutenções quando necessário.</p>
+      <p>O serviço pode ter manutenções quando necessário.</p>
     </div>
   </div>
 
