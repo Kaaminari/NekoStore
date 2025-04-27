@@ -295,76 +295,42 @@
   </main>
 
   <script>
-let modo = 'cadastro'; // pode ser 'cadastro' ou 'login'
+function abrirModal() {
+  const modal = document.getElementById("modal-login");
+  const overlay = document.getElementById("overlay");
 
-function alternarModo() {
-  modo = modo === 'cadastro' ? 'login' : 'cadastro';
-  atualizarModal();
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+
+  // Adiciona a animação
+  modal.classList.add("show");
 }
 
-function atualizarModal() {
-  const titulo = document.getElementById('modal-title');
-  const inputNome = document.getElementById('novo-usuario');
-  const botaoTexto = document.getElementById('botao-texto');
-  const linkTexto = document.getElementById('alternar-login');
+function fecharModal() {
+  const modal = document.getElementById("modal-login");
+  const overlay = document.getElementById("overlay");
 
-  if (modo === 'login') {
-    titulo.innerText = 'Fazer login';
-    inputNome.style.display = 'none';
-    botaoTexto.innerText = 'Entrar';
-    linkTexto.innerText = 'Não possui uma conta? Criar agora';
-  } else {
-    titulo.innerText = 'Fazer cadastro';
-    inputNome.style.display = 'block';
-    botaoTexto.innerText = 'Continuar';
-    linkTexto.innerText = 'Já possui uma conta? Fazer login';
-  }
+  // Anima pra fechar
+  modal.classList.remove("show");
+  modal.style.animation = "zoomOut 0.3s ease";
+
+  // Depois de 300ms (duração da animação), some
+  setTimeout(() => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+    modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
+  }, 300);
 }
-
-function fazerCadastroOuLogin() {
-  const nome = document.getElementById('novo-usuario').value;
-  const email = document.getElementById('novo-email').value;
-  const senha = document.getElementById('nova-senha').value;
-
-  if (!email || !senha || (modo === 'cadastro' && !nome)) {
-    alert("Preencha todos os campos!");
-    return;
-  }
-
-  if (modo === 'cadastro') {
-    // Validação simples de senha
-    if (senha.length < 6 || !/[!@#$%^&*(),.?":{}|<>]/.test(senha)) {
-      alert("A senha deve ter pelo menos 6 caracteres e um símbolo.");
-      return;
+    
+    function fazerCadastro() {
+      alert("Cadastro feito!");
+      fecharModal();
     }
 
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    if (usuarios.some(u => u.email === email)) {
-      alert("E-mail já cadastrado.");
-      return;
+    function trocarParaLogin() {
+      alert("Função de login ainda não implementada.");
     }
 
-    usuarios.push({ nome, email, senha });
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    localStorage.setItem('logado', nome);
-    alert("Cadastro feito com sucesso!");
-    fecharModal();
-    location.reload();
-  } else {
-    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-    const usuario = usuarios.find(u => u.email === email && u.senha === senha);
-
-    if (!usuario) {
-      alert("E-mail ou senha incorretos.");
-      return;
-    }
-
-    localStorage.setItem('logado', usuario.nome);
-    alert("Login feito com sucesso!");
-    fecharModal();
-    location.reload();
-  }
-}
 
 // NEVE
     const container = document.querySelector('.neve-container');
