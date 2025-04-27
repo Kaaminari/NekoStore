@@ -159,21 +159,18 @@
 }
 
 .fechar {
-  /* mesmo gradiente do botão principal */
-  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  background: none;
   color: white;
   font-weight: bold;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 50%;
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 18px;
-  user-select: none;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
+  opacity: 0;
 }
 
 /* efeito “brilho” igual ao botão principal */
@@ -193,11 +190,12 @@
   top: 0;
 }
 
+/* Quando o mouse passar por cima, o fundo e o ícone aumentam */
 .fechar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 0 2px #ff69b4;
+  background: #ff69b4;
+  opacity: 1;
+  transform: scale(1.2);
 }
-
 
 /* Texto Link para login */
 .link-login {
