@@ -1,99 +1,70 @@
-// Elementos
-const btnLogin = document.getElementById('btnLogin');
-const bemVindo = document.getElementById('bemVindo');
-const loginText = document.getElementById('loginText');
-const overlay = document.getElementById('overlay');
-const modal = document.getElementById('modal-login');
-const modalTitle = document.getElementById('modal-title');
-const usuarioInput = document.getElementById('usuario');
-const emailInput = document.getElementById('email');
-const senhaInput = document.getElementById('senha');
-const mensagemErro = document.getElementById('mensagem-erro');
-const actionBtn = document.getElementById('actionBtn');
-const actionText = document.getElementById('actionText');
-const toggleLink = document.getElementById('toggleLink');
+let modo = 'cadastro'; // pode ser 'cadastro' ou 'login'
 
-let modo = 'cadastro';
-let usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-
-// Se já estiver logado
-const logado = localStorage.getItem('logado');
-if (logado) onLoginSuccess(logado);
-
-btnLogin.addEventListener('click', abrirModal);
-toggleLink.addEventListener('click', () => {
+function alternarModo() {
   modo = modo === 'cadastro' ? 'login' : 'cadastro';
-  atualizarUI();
-});
-actionBtn.addEventListener('click', processar);
+  atualizarModal();
+}
 
-function abrirModal() {
-  mensagemErro.textContent = '';
-  overlay.style.display = 'block';
-  modal.style.display = 'flex';
-  modal.classList.add('show');
-  atualizarUI();
-}
-function fecharModal() {
-  modal.classList.remove('show');
-  modal.style.animation = 'zoomOut 0.3s ease';
-  setTimeout(() => {
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
-    modal.style.animation = '';
-  }, 300);
-}
-function atualizarUI() {
-  if (modo === 'cadastro') {
-    modalTitle.textContent = 'Fazer cadastro';
-    actionText.textContent = 'Continuar';
-    usuarioInput.style.display = 'block';
-    toggleLink.textContent = 'Já possui conta? Fazer login';
+function atualizarModal() {
+  const titulo = document.getElementById('modal-title');
+  const inputNome = document.getElementById('novo-usuario');
+  const botaoTexto = document.getElementById('botao-texto');
+  const linkTexto = document.getElementById('alternar-login');
+
+  if (modo === 'login') {
+    titulo.innerText = 'Fazer login';
+    inputNome.style.display = 'none';
+    botaoTexto.innerText = 'Entrar';
+    linkTexto.innerText = 'Não possui uma conta? Criar agora';
   } else {
-    modalTitle.textContent = 'Fazer login';
-    actionText.textContent = 'Entrar';
-    usuarioInput.style.display = 'none';
-    toggleLink.textContent = 'Não possui conta? Criar agora';
+    titulo.innerText = 'Fazer cadastro';
+    inputNome.style.display = 'block';
+    botaoTexto.innerText = 'Continuar';
+    linkTexto.innerText = 'Já possui uma conta? Fazer login';
   }
 }
-function processar() {
-  mensagemErro.textContent = '';
-  const nome = usuarioInput.value.trim();
-  const email = emailInput.value.trim();
-  const senha = senhaInput.value;
+
+function fazerCadastroOuLogin() {
+  const nome = document.getElementById('novo-usuario').value;
+  const email = document.getElementById('novo-email').value;
+  const senha = document.getElementById('nova-senha').value;
+
   if (!email || !senha || (modo === 'cadastro' && !nome)) {
-    mensagemErro.textContent = 'Preencha todos os campos.';
+    alert("Preencha todos os campos!");
     return;
   }
+
   if (modo === 'cadastro') {
-    if (senha.length < 6 || !/[^a-zA-Z0-9]/.test(senha)) {
-      mensagemErro.textContent = 'Senha precisa de 6+ chars e 1 especial.';
+    // Validação simples de senha
+    if (senha.length < 6 || !/[!@#$%^&*(),.?":{}|<>]/.test(senha)) {
+      alert("A senha deve ter pelo menos 6 caracteres e um símbolo.");
       return;
     }
-    if (usuarios.find(u => u.email === email)) {
-      mensagemErro.textContent = 'E-mail já cadastrado.';
+
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    if (usuarios.some(u => u.email === email)) {
+      alert("E-mail já cadastrado.");
       return;
     }
+
     usuarios.push({ nome, email, senha });
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
     localStorage.setItem('logado', nome);
-    onLoginSuccess(nome);
+    alert("Cadastro feito com sucesso!");
     fecharModal();
+    location.reload();
   } else {
-    const user = usuarios.find(u => u.email === email && u.senha === senha);
-    if (!user) {
-      mensagemErro.textContent = 'E-mail ou senha incorretos.';
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    const usuario = usuarios.find(u => u.email === email && u.senha === senha);
+
+    if (!usuario) {
+      alert("E-mail ou senha incorretos.");
       return;
     }
-    localStorage.setItem('logado', user.nome);
-    onLoginSuccess(user.nome);
+
+    localStorage.setItem('logado', usuario.nome);
+    alert("Login feito com sucesso!");
     fecharModal();
+    location.reload();
   }
-}
-function onLoginSuccess(nome) {
-  bemVindo.style.display = 'inline';
-  bemVindo.textContent = `Olá, ${nome}`;
-  loginText.textContent = 'Minha conta';
-  btnLogin.removeEventListener('click', abrirModal);
-  btnLogin.addEventListener('click', () => {});
 }
