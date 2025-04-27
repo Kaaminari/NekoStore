@@ -384,16 +384,13 @@ function abrirTermos() {
 }
 
 function fecharTermos() {
-  const modal = document.getElementById("modal-termos");
-  const overlay = document.getElementById("overlay");
-
-  modal.classList.remove("show");
-  modal.style.animation = "zoomOut 0.3s ease";
+  const modalTermos = document.getElementById("modal-termos");
+  modalTermos.classList.remove("show");
+  modalTermos.style.animation = "zoomOut 0.3s ease";
 
   setTimeout(() => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-    modal.style.animation = "";
+    modalTermos.style.display = "none";
+    modalTermos.style.animation = "";
   }, 300);
 }
 function abrirModal() {
