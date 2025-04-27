@@ -7,30 +7,33 @@
   <link rel="icon" type="image/png" href="imagens/icon.png">
   <link rel="stylesheet" href="style.css" />
   <style>
-    .termos-conteudo {
-      max-height: 400px;
-      overflow-y: auto;
-      margin: 20px 0;
-      padding: 10px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 8px;
-    }
+.termos-conteudo {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  display: flex;
+  gap: 40px; /* espaço entre os blocos */
+  scroll-behavior: smooth;
+}
 
-    .termos-conteudo h3 {
-      color: #ff69b4;
-      margin: 15px 0 5px 0;
-    }
+.termos-conteudo > div {
+  min-width: 350px; /* largura de cada bloco */
+  flex-shrink: 0;
+}
 
-    .termos-conteudo p {
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    /* Estilos gerais */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+.termos-conteudo h3 {
+  color: #ff69b4;
+  margin: 10px 0;
+}
+
+.termos-conteudo p {
+  line-height: 1.6;
+}
+
     body, html {
       height: 100%;
     }
