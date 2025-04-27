@@ -295,6 +295,42 @@
   </main>
 
   <script>
+function abrirModal() {
+  const modal = document.getElementById("modal-login");
+  const overlay = document.getElementById("overlay");
+
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+
+  // Adiciona a animação
+  modal.classList.add("show");
+}
+
+function fecharModal() {
+  const modal = document.getElementById("modal-login");
+  const overlay = document.getElementById("overlay");
+
+  // Anima pra fechar
+  modal.classList.remove("show");
+  modal.style.animation = "zoomOut 0.3s ease";
+
+  // Depois de 300ms (duração da animação), some
+  setTimeout(() => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+    modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
+  }, 300);
+}
+    
+    function fazerCadastro() {
+      alert("Cadastro feito!");
+      fecharModal();
+    }
+
+    function trocarParaLogin() {
+      alert("Função de login ainda não implementada.");
+    }
+
 let modo = 'cadastro'; // 'cadastro' ou 'login'
 
 function alternarModo() {
