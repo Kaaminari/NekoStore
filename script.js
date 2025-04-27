@@ -9,8 +9,6 @@ function mostrarRecuperacao() {
     return;
   }
   
-  // Gera código de 6 dígitos
-  codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString();
   const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
   const usuario = usuarios.find(u => u.email === email);
   
@@ -18,6 +16,9 @@ function mostrarRecuperacao() {
     mostrarErro("Email não encontrado");
     return;
   }
+  
+  // Gera código de 6 dígitos
+  codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString();
   
   // Em um sistema real, enviaria o email
   console.log("Código:", codigoRecuperacao);
