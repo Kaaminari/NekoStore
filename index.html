@@ -212,16 +212,39 @@
   <div class="modal" id="modal-login" onclick="event.stopPropagation()">
     <span class="fechar" onclick="fecharModal()">✕</span>
     <h2>Fazer cadastro</h2>
+    <div id="form-cadastro" style="display: flex; flex-direction: column; gap: 15px;">
+      <input type="text" id="novo-usuario" placeholder="Nome de usuário">
+      <input type="email" id="novo-email" placeholder="Endereço de e-mail">
+      <input type="password" id="nova-senha" placeholder="Senha">
+      <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
+      <p style="color: white;">
+        Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
+      </p>
+    </div>
 
-    <input type="text" id="novo-usuario" placeholder="Nome de usuário">
-    <input type="email" id="novo-email" placeholder="Endereço de e-mail">
-    <input type="password" id="nova-senha" placeholder="Senha">
+    <div id="form-login" style="display: none; flex-direction: column; gap: 15px;">
+      <input type="email" id="email-login" placeholder="E-mail">
+      <input type="password" id="senha-login" placeholder="Senha">
+      <button class="botao-principal" onclick="fazerLogin()"><span>Entrar</span></button>
+      <p style="color: white;">
+        Esqueceu a senha? <span class="link-login" onclick="mostrarRecuperacao()">Recuperar</span>
+      </p>
+      <p style="color: white;">
+        Não tem conta? <span class="link-login" onclick="trocarParaCadastro()">Criar conta</span>
+      </p>
+    </div>
 
-    <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
-
-    <p style="color: white; margin-top: 15px;">
-      Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
-    </p>
+    <div id="form-recuperacao" style="display: none; flex-direction: column; gap: 15px;">
+      <input type="email" id="email-recuperacao" placeholder="Digite seu e-mail">
+      <div id="codigo-recuperacao" style="display: none;">
+        <input type="text" id="codigo" placeholder="Digite o código recebido">
+        <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha">
+      </div>
+      <button class="botao-principal" onclick="recuperarSenha()"><span>Enviar código</span></button>
+      <p style="color: white;">
+        <span class="link-login" onclick="trocarParaLogin()">Voltar para login</span>
+      </p>
+    </div>
 
     <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
   </div>
@@ -331,7 +354,7 @@ function fecharModal() {
     modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
   }, 300);
 }
-    
+
     function fazerCadastro() {
       alert("Cadastro feito!");
       fecharModal();
