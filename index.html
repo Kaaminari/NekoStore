@@ -206,8 +206,17 @@
     <input type="text" id="novo-usuario" placeholder="Nome de usuário">
     <input type="email" id="novo-email" placeholder="Endereço de e-mail">
     <input type="password" id="nova-senha" placeholder="Senha">
+    <div id="recuperacao-container" style="width: 100%; text-align: right;">
+      <a onclick="mostrarRecuperacao()" style="color: white; cursor: pointer; font-size: 14px;">Esqueceu a senha? <span style="color: #ff69b4">Redefinir</span></a>
+    </div>
 
-    <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
+    <div id="codigo-container" style="display: none;">
+      <input type="text" id="codigo-recuperacao" placeholder="Digite o código enviado por email">
+      <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha">
+      <div id="erro-codigo" style="color: red; display: none; margin-top: 5px; font-size: 14px;"></div>
+    </div>
+
+    <button class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
     <p style="color: white; margin-top: 15px;" id="alternar-login" onclick="alternarModo()">
       Já possui uma conta? <span class="link-login">Fazer login</span> </p>
     <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
