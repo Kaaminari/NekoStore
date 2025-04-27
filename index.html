@@ -321,7 +321,7 @@ function fecharModal() {
     modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
   }, 300);
 }
-    
+
     function fazerCadastro() {
       alert("Cadastro feito!");
       fecharModal();
@@ -348,15 +348,15 @@ function atualizarModal() {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
-    linkTexto.innerText = 'Fazer cadastro';
+    linkTexto.innerText = 'Não possui uma conta? Fazer cadastro';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
-    linkTexto.innerText = 'Fazer login';
+    linkTexto.innerText = 'Já possui uma conta? Fazer login';
   }
 }
-    
+
 function fazerCadastroOuLogin() {
   const nome = document.getElementById('novo-usuario').value;
   const email = document.getElementById('novo-email').value;
