@@ -167,6 +167,16 @@
   cursor: pointer;
 }
 
+    /* (seus estilos existentes continuam aqui...) */
+    .erro {
+      border: 1px solid red !important;
+    }
+    .mensagem-erro {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
 /* Texto Link para login */
 .link-login {
   color: #ff69b4;
@@ -330,6 +340,103 @@ function fecharModal() {
     function trocarParaLogin() {
       alert("Função de login ainda não implementada.");
     }
+
+    let modo = "cadastro";
+    const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+
+    function abrirModal() {
+      const modal = document.getElementById("modal-login");
+      const overlay = document.getElementById("overlay");
+      modal.style.display = "flex";
+      overlay.style.display = "block";
+      modal.classList.add("show");
+    }
+
+    function fecharModal() {
+      const modal = document.getElementById("modal-login");
+      const overlay = document.getElementById("overlay");
+      modal.classList.remove("show");
+      modal.style.animation = "zoomOut 0.3s ease";
+      setTimeout(() => {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+        modal.style.animation = "";
+      }, 300);
+    }
+
+    function trocarParaLogin() {
+      modo = modo === "cadastro" ? "login" : "cadastro";
+      document.querySelector(".modal h2").innerText = modo === "cadastro" ? "Fazer cadastro" : "Fazer login";
+      document.querySelector(".botao-principal span").innerText = modo === "cadastro" ? "Continuar" : "Entrar";
+      document.querySelector(".link-login").innerText = modo === "cadastro" ? "Já possui uma conta? Fazer login" : "Não possui conta? Criar agora";
+      limparErros();
+    }
+
+    function validarSenha(senha) {
+      return senha.length >= 6 && /[^a-zA-Z0-9]/.test(senha);
+    }
+
+    function mostrarErro(msg) {
+      let erroEl = document.getElementById("mensagem-erro");
+      if (!erroEl) {
+        erroEl = document.createElement("div");
+        erroEl.id = "mensagem-erro";
+        erroEl.className = "mensagem-erro";
+        document.querySelector("#modal-login").appendChild(erroEl);
+      }
+      erroEl.innerText = msg;
+    }
+
+    function limparErros() {
+      mostrarErro("");
+      document.querySelectorAll("#modal-login input").forEach(input => input.classList.remove("erro"));
+    }
+
+    function fazerCadastro() {
+      limparErros();
+
+      const nome = document.getElementById("novo-usuario") || document.getElementById("usuario");
+      const email = document.getElementById("novo-email") || document.getElementById("email");
+      const senha = document.getElementById("nova-senha") || document.getElementById("senha");
+
+      if (!email.value || !senha.value || (modo === "cadastro" && !nome.value)) {
+        mostrarErro("Preencha todos os campos.");
+        if (!nome.value && modo === "cadastro") nome.classList.add("erro");
+        if (!email.value) email.classList.add("erro");
+        if (!senha.value) senha.classList.add("erro");
+        return;
+      }
+
+      if (modo === "cadastro") {
+        if (!validarSenha(senha.value)) {
+          mostrarErro("A senha deve ter pelo menos 6 caracteres e um caractere especial.");
+          senha.classList.add("erro");
+          return;
+        }
+
+        if (usuarios.find(u => u.email === email.value)) {
+          mostrarErro("E-mail já cadastrado.");
+          email.classList.add("erro");
+          return;
+        }
+
+        usuarios.push({ nome: nome.value, email: email.value, senha: senha.value });
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        alert("Cadastro realizado com sucesso!");
+        fecharModal();
+      } else {
+        const user = usuarios.find(u => u.email === email.value && u.senha === senha.value);
+        if (!user) {
+          mostrarErro("E-mail ou senha incorretos.");
+          email.classList.add("erro");
+          senha.classList.add("erro");
+          return;
+        }
+        alert("Login bem-sucedido! Bem-vindo, " + user.nome);
+        fecharModal();
+      }
+    }
+
 
     const container = document.querySelector('.neve-container');
 
