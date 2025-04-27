@@ -167,16 +167,16 @@
   top: 10px;
   right: 15px;
   font-size: 18px;
-  padding: 8px 12px;
-  user-select: none;
+  padding: 4px 8px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .fechar:hover {
   background: linear-gradient(90deg, #ff69b4, #ff00aa);
-  border-radius: 8px;
+  color: white;
   transform: scale(0.95);
-  border: 2px dashed rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 .fechar::before {
@@ -186,7 +186,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
