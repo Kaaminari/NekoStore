@@ -206,6 +206,7 @@
     <input type="text" id="novo-usuario" placeholder="Nome de usuário">
     <input type="email" id="novo-email" placeholder="Endereço de e-mail">
     <input type="password" id="nova-senha" placeholder="Senha">
+
     <div id="recuperacao-container" style="width: 100%; text-align: center; margin: 5px 0;">
       <a onclick="mostrarRecuperacao()" style="color: white; cursor: pointer; font-size: 14px;">Esqueceu a senha? <span style="color: #ff69b4">Redefinir</span></a>
     </div>
@@ -364,6 +365,7 @@ function atualizarModal() {
     botaoTexto.innerText = 'Continuar';
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
     termosTexto.style.display = 'block';
+    recuperacao-containerTexto.style.display = 'block';
   }
 }
 
