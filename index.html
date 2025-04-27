@@ -7,6 +7,26 @@
   <link rel="icon" type="image/png" href="imagens/icon.png">
   <link rel="stylesheet" href="style.css" />
   <style>
+.modal-termos {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0a0a0a;
+  color: white;
+  padding: 30px;
+  border: 1px solid #333;
+  border-radius: 15px;
+  z-index: 9999;
+  width: 90vw;
+  max-width: 1000px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+  overflow: hidden;
+}
+
 .termos-conteudo {
   max-width: 100%;
   white-space: nowrap;
@@ -16,12 +36,12 @@
   background: rgba(255,255,255,0.05);
   border-radius: 8px;
   display: flex;
-  gap: 40px; /* espaço entre os blocos */
+  gap: 40px;
   scroll-behavior: smooth;
 }
 
 .termos-conteudo > div {
-  min-width: 350px; /* largura de cada bloco */
+  min-width: 350px;
   flex-shrink: 0;
 }
 
@@ -32,6 +52,15 @@
 
 .termos-conteudo p {
   line-height: 1.6;
+}
+
+/* Scrollbar bonita */
+.termos-conteudo::-webkit-scrollbar {
+  height: 8px;
+}
+.termos-conteudo::-webkit-scrollbar-thumb {
+  background: #ff69b4;
+  border-radius: 4px;
 }
 
     body, html {
@@ -248,7 +277,7 @@
   </header>
 
   <main>
-<div id="overlay" class="overlay" onclick="fecharModal()">
+<div id="modal-termos" class="modal-termos" onclick="fecharModal()">
   <div class="modal" id="modal-login" onclick="event.stopPropagation()">
     <span class="fechar" onclick="fecharModal()">✕</span>
     <h2 id="modal-title">Fazer cadastro</h2>
