@@ -56,125 +56,126 @@
       100% { transform: translate(100px, 100vh) rotate(360deg); }
     }
 
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
 
-@keyframes zoomOut {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-}
+    @keyframes zoomOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+    }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #0a0a0a;
-  color: white;
-  padding: 30px 25px;
-  border: 1px solid #333;
-  border-radius: 12px;
-  z-index: 3;
-  flex-direction: column;
-  gap: 15px;
-  width: 300px;
-  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
-}
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #0a0a0a;
+      color: white;
+      padding: 30px 25px;
+      border: 1px solid #333;
+      border-radius: 12px;
+      z-index: 3;
+      flex-direction: column;
+      gap: 15px;
+      width: 300px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    }
 
-/* Quando o modal abrir, ele vai animar */
-.modal.show {
-  animation: zoomIn 0.3s ease;
-}
+    /* Quando o modal abrir, ele vai animar */
+    .modal.show {
+      animation: zoomIn 0.3s ease;
+    }
 
-/* Inputs */
-.modal input {
-  background: #111;
-  border: 1px solid #333;
-  padding: 10px;
-  border-radius: 8px;
-  color: white;
-  outline: none;
-  transition: border 0.3s;
-}
+    /* Inputs */
+    .modal input {
+      background: #111;
+      border: 1px solid #333;
+      padding: 10px;
+      border-radius: 8px;
+      color: white;
+      outline: none;
+      transition: border 0.3s;
+    }
 
-.modal input:focus {
-  border-color: #ff69b4;
-}
+    .modal input:focus {
+      border-color: #ff69b4;
+    }
 
-/* Botão Principal */
-.botao-principal {
-  background: linear-gradient(90deg, #ff69b4, #ff00aa);
-  color: white;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
+    /* Botão Principal */
+    .botao-principal {
+      background: linear-gradient(90deg, #ff69b4, #ff00aa);
+      color: white;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-.botao-principal::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  transition: top 0.4s ease;
-  z-index: 1;
-}
+    .botao-principal::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: top 0.4s ease;
+      z-index: 1;
+    }
 
-.botao-principal:hover::before {
-  top: 0;
-}
+    .botao-principal:hover::before {
+      top: 0;
+    }
 
-.botao-principal:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 0 2px #ff69b4;
-}
+    .botao-principal:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 2px #ff69b4;
+    }
 
-/* Texto no botão sempre acima da animação */
-.botao-principal span, .botao-principal {
-  position: relative;
-  z-index: 2;
-}
+    /* Texto no botão sempre acima da animação */
+    .botao-principal span, .botao-principal {
+      position: relative;
+      z-index: 2;
+    }
 
-/* Fechar Modal */
-.fechar {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
+    /* Fechar Modal */
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-/* Texto Link para login */
-.link-login {
-  color: #ff69b4;
-  cursor: pointer;
-}
-.link-login:hover {
-  text-decoration: underline;
-}
+    /* Texto Link para login */
+    .link-login {
+      color: #ff69b4;
+      cursor: pointer;
+    }
+
+    .link-login:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -199,23 +200,23 @@
 
   <main>
     <div id="overlay" class="overlay" onclick="fecharModal()">
-  <div class="modal" id="modal-login" onclick="event.stopPropagation()">
-    <span class="fechar" onclick="fecharModal()">✕</span>
-    <h2>Fazer cadastro</h2>
+      <div class="modal" id="modal-login" onclick="event.stopPropagation()">
+        <span class="fechar" onclick="fecharModal()">✕</span>
+        <h2>Fazer cadastro</h2>
 
-    <input type="text" id="novo-usuario" placeholder="Nome de usuário">
-    <input type="email" id="novo-email" placeholder="Endereço de e-mail">
-    <input type="password" id="nova-senha" placeholder="Senha">
+        <input type="text" id="novo-usuario" placeholder="Nome de usuário">
+        <input type="email" id="novo-email" placeholder="Endereço de e-mail">
+        <input type="password" id="nova-senha" placeholder="Senha">
 
-    <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
+        <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
 
-    <p style="color: white; margin-top: 15px;">
-      Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
-    </p>
+        <p style="color: white; margin-top: 15px;">
+          Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
+        </p>
 
-    <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
-  </div>
-</div>
+        <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
+      </div>
+    </div>
 
     <section class="categorias">
       <h2>Categorias Populares</h2>
@@ -294,58 +295,6 @@
     </section>
   </main>
 
-  <script>
-function abrirModal() {
-  const modal = document.getElementById("modal-login");
-  const overlay = document.getElementById("overlay");
-
-  modal.style.display = "flex";
-  overlay.style.display = "block";
-
-  // Adiciona a animação
-  modal.classList.add("show");
-}
-
-function fecharModal() {
-  const modal = document.getElementById("modal-login");
-  const overlay = document.getElementById("overlay");
-
-  // Anima pra fechar
-  modal.classList.remove("show");
-  modal.style.animation = "zoomOut 0.3s ease";
-
-  // Depois de 300ms (duração da animação), some
-  setTimeout(() => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-    modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
-  }, 300);
-}
-    
-    function fazerCadastro() {
-      alert("Cadastro feito!");
-      fecharModal();
-    }
-
-    function trocarParaLogin() {
-      alert("Função de login ainda não implementada.");
-    }
-
-    const container = document.querySelector('.neve-container');
-
-    function criarFloco() {
-      const floco = document.createElement('div');
-      floco.classList.add('floco');
-      floco.style.left = Math.random() * 100 + 'vw';
-      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
-      container.appendChild(floco);
-
-      setTimeout(() => {
-        floco.remove();
-      }, 10000);
-    }
-
-    setInterval(criarFloco, 200);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
