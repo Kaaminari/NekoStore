@@ -209,8 +209,8 @@
 
     <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
 
-    <p style="color: white; margin-top: 15px;">
-      Já possui uma conta? <span id="alternar-login" class="link-login" onclick="alternarModo()">Fazer login</span>
+    <p style="color: white; margin-top: 15px;" id="alternar-login" onclick="alternarModo()">
+      Já possui uma conta? Fazer <span class="link-login">login</span>
     </p>
 
     <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
@@ -348,12 +348,12 @@ function atualizarModal() {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
-    linkTexto.innerText = 'Não possui uma conta? Fazer cadastro';
+    linkTexto.innerHTML = 'Não possui uma conta? Fazer <span class="link-login">cadastro</span>';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
-    linkTexto.innerText = 'Já possui uma conta? Fazer login';
+    linkTexto.innerHTML = 'Já possui uma conta? Fazer <span class="link-login">login</span>';
   }
 }
 
