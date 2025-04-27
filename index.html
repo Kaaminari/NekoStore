@@ -341,19 +341,19 @@ function alternarModo() {
 function atualizarModal() {
   const titulo = document.getElementById('modal-title');
   const inputNome = document.getElementById('novo-usuario');
-  const botaoTexto = document.getElementById('botao-texto');
+  const botaoTexto = document.querySelector('.modal .botao-principal span');
   const linkTexto = document.getElementById('alternar-login');
 
   if (modo === 'login') {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
-    linkTexto.innerText = 'Não possui uma conta? Criar agora'; // Aqui altera o texto do link para criar conta
+    linkTexto.innerText = 'Não possui uma conta? Fazer cadastro';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
-    linkTexto.innerText = 'Já possui uma conta? Fazer login'; // Aqui volta para o texto "Fazer login"
+    linkTexto.innerText = 'Já possui uma conta? Fazer login';
   }
 }
     
