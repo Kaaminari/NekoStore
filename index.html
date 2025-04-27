@@ -328,51 +328,60 @@
   </main>
 
   <script>
-function abrirModal() {
-  const modal = document.getElementById("modal-login");
-  const overlay = document.getElementById("overlay");
-
-  modal.style.display = "flex";
-  overlay.style.display = "block";
-
-  // Adiciona a animação
-  modal.classList.add("show");
-}
-
-function fecharModal() {
-  const modal = document.getElementById("modal-login");
-  const overlay = document.getElementById("overlay");
-
-  // Anima pra fechar
-  modal.classList.remove("show");
-  modal.style.animation = "zoomOut 0.3s ease";
-
-  // Depois de 300ms (duração da animação), some
-  setTimeout(() => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-    modal.style.animation = ""; // reseta a animação pra poder abrir de novo depois
-  }, 300);
-}
-
-    function fazerCadastro() {
-      alert("Cadastro feito!");
-      fecharModal();
-    }
-
-    function trocarParaLogin() {
-      alert("Função de login ainda não implementada.");
-    }
-
     let modo = "cadastro";
+    let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado") || "null");
     const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
 
+    // Verifica se há usuário logado ao carregar a página
+    window.onload = function() {
+      atualizarBotaoLogin();
+    }
+
+    function atualizarBotaoLogin() {
+      const botaoLogin = document.querySelector('.actions .botao-principal');
+      if (usuarioLogado) {
+        botaoLogin.innerHTML = `<span>Minha Conta</span>`;
+      } else {
+        botaoLogin.innerHTML = `<span>Fazer login</span>`;
+      }
+    }
+
     function abrirModal() {
+      if (usuarioLogado) {
+        // Se estiver logado, implementar lógica da conta
+        alert("Área da conta em desenvolvimento");
+        return;
+      }
+      
       const modal = document.getElementById("modal-login");
       const overlay = document.getElementById("overlay");
       modal.style.display = "flex";
       overlay.style.display = "block";
       modal.classList.add("show");
+
+      // Mostrar form correto
+      mostrarFormulario("login");
+    }
+
+    function mostrarFormulario(form) {
+      document.getElementById("form-cadastro").style.display = "none";
+      document.getElementById("form-login").style.display = "none";
+      document.getElementById("form-recuperacao").style.display = "none";
+      
+      document.getElementById(`form-${form}`).style.display = "flex";
+      
+      const titulo = document.querySelector(".modal h2");
+      switch(form) {
+        case "cadastro":
+          titulo.innerText = "Fazer cadastro";
+          break;
+        case "login":
+          titulo.innerText = "Fazer login";
+          break;
+        case "recuperacao":
+          titulo.innerText = "Recuperar senha";
+          break;
+      }
     }
 
     function fecharModal() {
@@ -387,12 +396,16 @@ function fecharModal() {
       }, 300);
     }
 
+    function trocarParaCadastro() {
+      mostrarFormulario("cadastro");
+    }
+
     function trocarParaLogin() {
-      modo = modo === "cadastro" ? "login" : "cadastro";
-      document.querySelector(".modal h2").innerText = modo === "cadastro" ? "Fazer cadastro" : "Fazer login";
-      document.querySelector(".botao-principal span").innerText = modo === "cadastro" ? "Continuar" : "Entrar";
-      document.querySelector(".link-login").innerText = modo === "cadastro" ? "Já possui uma conta? Fazer login" : "Não possui conta? Criar agora";
-      limparErros();
+      mostrarFormulario("login");
+    }
+
+    function mostrarRecuperacao() {
+      mostrarFormulario("recuperacao");
     }
 
     function validarSenha(senha) {
@@ -417,65 +430,118 @@ function fecharModal() {
 
     function fazerCadastro() {
       limparErros();
+      const nome = document.getElementById("novo-usuario");
+      const email = document.getElementById("novo-email");
+      const senha = document.getElementById("nova-senha");
 
-      const nome = document.getElementById("novo-usuario") || document.getElementById("usuario");
-      const email = document.getElementById("novo-email") || document.getElementById("email");
-      const senha = document.getElementById("nova-senha") || document.getElementById("senha");
-
-      if (!email.value || !senha.value || (modo === "cadastro" && !nome.value)) {
+      if (!nome.value || !email.value || !senha.value) {
         mostrarErro("Preencha todos os campos.");
-        if (!nome.value && modo === "cadastro") nome.classList.add("erro");
+        if (!nome.value) nome.classList.add("erro");
         if (!email.value) email.classList.add("erro");
         if (!senha.value) senha.classList.add("erro");
         return;
       }
 
-      if (modo === "cadastro") {
-        if (!validarSenha(senha.value)) {
-          mostrarErro("A senha deve ter pelo menos 6 caracteres e um caractere especial.");
-          senha.classList.add("erro");
-          return;
-        }
+      if (!validarSenha(senha.value)) {
+        mostrarErro("A senha deve ter pelo menos 6 caracteres e um caractere especial.");
+        senha.classList.add("erro");
+        return;
+      }
 
-        if (usuarios.find(u => u.email === email.value)) {
-          mostrarErro("E-mail já cadastrado.");
-          email.classList.add("erro");
-          return;
-        }
+      if (usuarios.find(u => u.email === email.value)) {
+        mostrarErro("E-mail já cadastrado.");
+        email.classList.add("erro");
+        return;
+      }
 
-        usuarios.push({ nome: nome.value, email: email.value, senha: senha.value });
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-        alert("Cadastro realizado com sucesso!");
-        fecharModal();
+      const novoUsuario = { nome: nome.value, email: email.value, senha: senha.value };
+      usuarios.push(novoUsuario);
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+      
+      // Fazer login automático após cadastro
+      usuarioLogado = novoUsuario;
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+      atualizarBotaoLogin();
+      
+      alert("Cadastro realizado com sucesso!");
+      fecharModal();
+    }
+
+    function fazerLogin() {
+      limparErros();
+      const email = document.getElementById("email-login");
+      const senha = document.getElementById("senha-login");
+
+      if (!email.value || !senha.value) {
+        mostrarErro("Preencha todos os campos.");
+        if (!email.value) email.classList.add("erro");
+        if (!senha.value) senha.classList.add("erro");
+        return;
+      }
+
+      const user = usuarios.find(u => u.email === email.value && u.senha === senha.value);
+      if (!user) {
+        mostrarErro("E-mail ou senha incorretos.");
+        email.classList.add("erro");
+        senha.classList.add("erro");
+        return;
+      }
+
+      usuarioLogado = user;
+      localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+      atualizarBotaoLogin();
+      
+      alert("Login bem-sucedido! Bem-vindo, " + user.nome);
+      fecharModal();
+    }
+
+    function recuperarSenha() {
+      const email = document.getElementById("email-recuperacao");
+      const codigoDiv = document.getElementById("codigo-recuperacao");
+      const botaoRecuperar = document.querySelector("#form-recuperacao .botao-principal");
+
+      if (!email.value) {
+        mostrarErro("Digite seu e-mail.");
+        email.classList.add("erro");
+        return;
+      }
+
+      const usuario = usuarios.find(u => u.email === email.value);
+      if (!usuario) {
+        mostrarErro("E-mail não encontrado.");
+        email.classList.add("erro");
+        return;
+      }
+
+      if (codigoDiv.style.display === "none") {
+        // Gerar e enviar código (simulado)
+        const codigo = Math.floor(100000 + Math.random() * 900000);
+        localStorage.setItem("codigoRecuperacao", codigo);
+        alert(`Código de recuperação (simulado): ${codigo}`);
+        
+        codigoDiv.style.display = "block";
+        botaoRecuperar.innerHTML = "<span>Redefinir Senha</span>";
       } else {
-        const user = usuarios.find(u => u.email === email.value && u.senha === senha.value);
-        if (!user) {
-          mostrarErro("E-mail ou senha incorretos.");
-          email.classList.add("erro");
-          senha.classList.add("erro");
+        const codigoDigitado = document.getElementById("codigo").value;
+        const novaSenha = document.getElementById("nova-senha-recuperacao").value;
+        const codigoSalvo = localStorage.getItem("codigoRecuperacao");
+
+        if (codigoDigitado != codigoSalvo) {
+          mostrarErro("Código inválido.");
           return;
         }
-        alert("Login bem-sucedido! Bem-vindo, " + user.nome);
-        fecharModal();
+
+        if (!validarSenha(novaSenha)) {
+          mostrarErro("A nova senha deve ter pelo menos 6 caracteres e um caractere especial.");
+          return;
+        }
+
+        // Atualizar senha
+        usuario.senha = novaSenha;
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        localStorage.removeItem("codigoRecuperacao");
+        
+        alert("Senha alterada com sucesso!");
+        trocarParaLogin();
       }
     }
-
-
-    const container = document.querySelector('.neve-container');
-
-    function criarFloco() {
-      const floco = document.createElement('div');
-      floco.classList.add('floco');
-      floco.style.left = Math.random() * 100 + 'vw';
-      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
-      container.appendChild(floco);
-
-      setTimeout(() => {
-        floco.remove();
-      }, 10000);
-    }
-
-    setInterval(criarFloco, 200);
-  </script>
-</body>
-</html>
