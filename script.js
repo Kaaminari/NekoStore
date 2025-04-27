@@ -1,4 +1,3 @@
-
 let codigoRecuperacao = null;
 let tentativas = 0;
 
@@ -8,22 +7,22 @@ function mostrarRecuperacao() {
     mostrarErro("Digite seu email primeiro");
     return;
   }
-  
+
   const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
   const usuario = usuarios.find(u => u.email === email);
-  
+
   if (!usuario) {
     mostrarErro("Email não encontrado");
     return;
   }
-  
+
   // Gera código de 6 dígitos
   codigoRecuperacao = Math.floor(100000 + Math.random() * 900000).toString();
-  
+
   // Em um sistema real, enviaria o email
   console.log("Código:", codigoRecuperacao);
   alert(`Código enviado para ${email}`);
-  
+
   document.getElementById('codigo-container').style.display = 'block';
   document.getElementById('novo-usuario').style.display = 'none';
   document.getElementById('nova-senha').style.display = 'none';
@@ -42,7 +41,7 @@ function mostrarErro(mensagem) {
 function verificarCodigo() {
   const codigoDigitado = document.getElementById('codigo-recuperacao').value;
   const novaSenha = document.getElementById('nova-senha-recuperacao').value;
-  
+
   if (codigoDigitado !== codigoRecuperacao) {
     tentativas++;
     if (tentativas >= 3) {
@@ -56,19 +55,19 @@ function verificarCodigo() {
     mostrarErro("Código inválido");
     return false;
   }
-  
+
   if (novaSenha.length < 6) {
     mostrarErro("A senha deve ter pelo menos 6 caracteres");
     return false;
   }
-  
+
   const email = document.getElementById('novo-email').value;
   const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
   const usuarioIndex = usuarios.findIndex(u => u.email === email);
-  
+
   usuarios[usuarioIndex].senha = novaSenha;
   localStorage.setItem('usuarios', JSON.stringify(usuarios));
-  
+
   alert("Senha alterada com sucesso!");
   document.getElementById('codigo-container').style.display = 'none';
   document.getElementById('novo-usuario').style.display = 'block';
@@ -141,25 +140,22 @@ function atualizarModal() {
   const botaoTexto = document.querySelector('.modal .botao-principal span');
   const linkTexto = document.getElementById('alternar-login');
   const termosTexto = document.querySelector('.termos');
-  const codigoContainer = document.getElementById('codigo-container');
-  
-  codigoContainer.style.display = 'none';
-  document.getElementById('novo-usuario').style.display = 'block';
-  document.getElementById('nova-senha').style.display = 'block';
-  document.getElementById('recuperacao-container').style.display = 'block';
-  
+  const recuperacaoContainer = document.getElementById('recuperacao-container');
+
   if (modo === 'login') {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
     linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
     termosTexto.style.display = 'none';
+    recuperacaoContainer.style.display = 'block';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
     termosTexto.style.display = 'block';
+    recuperacaoContainer.style.display = 'none';
   }
 }
 
