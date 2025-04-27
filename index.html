@@ -198,19 +198,19 @@
   </header>
 
   <main>
-    <div id="overlay" class="overlay" onclick="fecharModal()">
+<div id="overlay" class="overlay" onclick="fecharModal()">
   <div class="modal" id="modal-login" onclick="event.stopPropagation()">
     <span class="fechar" onclick="fecharModal()">✕</span>
-    <h2>Fazer cadastro</h2>
+    <h2 id="modal-title">Fazer cadastro</h2>
 
     <input type="text" id="novo-usuario" placeholder="Nome de usuário">
     <input type="email" id="novo-email" placeholder="Endereço de e-mail">
     <input type="password" id="nova-senha" placeholder="Senha">
 
-    <button class="botao-principal" onclick="fazerCadastro()"><span>Continuar</span></button>
+    <button class="botao-principal" onclick="fazerCadastroOuLogin()"><span id="botao-texto">Continuar</span></button>
 
     <p style="color: white; margin-top: 15px;">
-      Já possui uma conta? <span class="link-login" onclick="trocarParaLogin()">Fazer login</span>
+      <span id="alternar-login" class="link-login" onclick="alternarModo()">Já possui uma conta? Fazer login</span>
     </p>
 
     <p class="termos">Ao criar sua conta você concorda com os <span class="destaque">Termos de Serviço</span> da loja.</p>
@@ -331,6 +331,8 @@ function fecharModal() {
       alert("Função de login ainda não implementada.");
     }
 
+
+// NEVE
     const container = document.querySelector('.neve-container');
 
     function criarFloco() {
