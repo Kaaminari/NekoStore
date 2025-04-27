@@ -80,6 +80,34 @@
       z-index: -1;
     }
 
+@media (max-width: 768px) {
+  .modal-termos {
+    width: 95vw;
+    height: 90vh;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .termos-conteudo {
+    display: block;
+    white-space: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 10px;
+  }
+
+  .termos-conteudo > div {
+    min-width: unset;
+    margin-bottom: 20px;
+  }
+
+  .termos-conteudo::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
     /* Estilos da neve */
     .neve-container {
       position: fixed;
