@@ -545,3 +545,23 @@
         trocarParaLogin();
       }
     }
+
+
+    const container = document.querySelector('.neve-container');
+
+    function criarFloco() {
+      const floco = document.createElement('div');
+      floco.classList.add('floco');
+      floco.style.left = Math.random() * 100 + 'vw';
+      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
+      container.appendChild(floco);
+
+      setTimeout(() => {
+        floco.remove();
+      }, 10000);
+    }
+
+    setInterval(criarFloco, 200);
+  </script>
+</body>
+</html>
