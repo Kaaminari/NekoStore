@@ -348,15 +348,15 @@ function atualizarModal() {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
-    linkTexto.innerText = 'Não possui uma conta? Criar agora'; // Alterado para "Criar agora"
+    linkTexto.innerText = 'Não possui uma conta? Criar agora'; // Aqui altera o texto do link para criar conta
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
-    linkTexto.innerText = 'Já possui uma conta? Fazer login'; // Alterado para "Fazer login"
+    linkTexto.innerText = 'Já possui uma conta? Fazer login'; // Aqui volta para o texto "Fazer login"
   }
 }
-
+    
 function fazerCadastroOuLogin() {
   const nome = document.getElementById('novo-usuario').value;
   const email = document.getElementById('novo-email').value;
