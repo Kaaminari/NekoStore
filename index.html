@@ -308,6 +308,10 @@ function abrirModal() {
 
   modal.style.display = "flex";
   overlay.style.display = "block";
+  
+  // Define o modo como cadastro por padrão
+  modo = 'cadastro';
+  atualizarModal();
 
   // Adiciona a animação
   modal.classList.add("show");
