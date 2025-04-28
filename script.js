@@ -175,6 +175,29 @@ function abrirModal() {
   overlay.style.display = "block";
 }
 
+
+
+
+
+
+function mostrarCadastro() {
+  document.getElementById('form-cadastro').style.display = 'flex';
+  document.getElementById('form-login').style.display = 'none';
+  document.getElementById('form-recuperar').style.display = 'none';
+}
+
+function mostrarLogin() {
+  document.getElementById('form-cadastro').style.display = 'none';
+  document.getElementById('form-login').style.display = 'flex';
+  document.getElementById('form-recuperar').style.display = 'none';
+}
+
+function mostrarRecuperar() {
+  document.getElementById('form-cadastro').style.display = 'none';
+  document.getElementById('form-login').style.display = 'none';
+  document.getElementById('form-recuperar').style.display = 'flex';
+}
+
 function mostrarRecuperacao() {
   document.getElementById('reset-container').style.display = 'block';
   document.getElementById('novo-usuario').style.display = 'none';
@@ -185,6 +208,13 @@ function mostrarRecuperacao() {
   document.getElementById('alternar-login').style.display = 'none';
   document.querySelector('.termos').style.display = 'none';
 }
+
+
+
+
+
+
+
 
 window.onload = () => {
   const logado = localStorage.getItem('logado');
