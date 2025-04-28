@@ -1,12 +1,5 @@
-wlet codigoRecuperacao = null;
+let codigoRecuperacao = null;
 let tentativas = 0;
-
-function mostrarRecuperacao() {
-  document.getElementById('reset-container').style.display = 'block';
-  document.getElementById('novo-usuario').style.display = 'none';
-  document.getElementById('nova-senha').style.display = 'none';
-  document.getElementById('recuperacao-container').style.display = 'none';
-}
 
 function enviarCodigo() {
   const email = document.getElementById('reset-email').value;
