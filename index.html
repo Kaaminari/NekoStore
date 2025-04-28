@@ -485,15 +485,12 @@
 
   <script>
 function abrirTermos() {
-  const modalTermos = document.getElementById("modal-termos");
-  const modalLogin = document.getElementById("modal-login");
+  const modal = document.getElementById("modal-termos");
+  const overlay = document.getElementById("overlay");
 
-  // Ocultar o modal de login, mas não o de termos
-  modalLogin.style.display = "block";
-  
-  // Exibir o modal de termos
-  modalTermos.style.display = "none";
-  modalTermos.classList.add("none);
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+  modal.classList.add("show");
 }
  
 function fecharTermos() {
