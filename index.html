@@ -12,6 +12,23 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-termos .fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.modal-termos .fechar:hover {
+  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  transform: scale(0.95);
+  box-shadow: 0 0 0 2px rgba(255, 0, 255, 0.6);
   background: #0a0a0a;
   color: white;
   padding: 30px;
@@ -330,8 +347,8 @@
     <p class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
 
 <!-- Modal dos Termos -->
-<div id="modal-termos" class="modal-termos"
-  <span class="fechar" onclick="fecharTermos()">✕</span>
+<div id="modal-termos" class="modal-termos">
+  <span class="fechar" onclick="fecharTermos()" style="color: white; font-size: 18px; padding: 4px 8px;">✕</span>
   <h2>Termos de Serviço</h2>
   
   <div class="termos-conteudo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-height: 500px;">
