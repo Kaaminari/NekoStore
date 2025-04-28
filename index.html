@@ -279,6 +279,12 @@
   opacity: 1;
 }
 
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* Texto Link para login */
 .link-login {
   color: #ff69b4;
@@ -311,6 +317,8 @@
   </header>
 
   <main>
+
+<!-- modal login -->
 <div id="overlay" class="overlay" onclick="fecharModal()">
   <div class="modal" id="modal-login" onclick="event.stopPropagation()">
     <span class="fechar" onclick="fecharModal()">✕</span>
@@ -324,21 +332,41 @@
       <a onclick="mostrarRecuperacao()" style="color: white; cursor: pointer; font-size: 14px;">Esqueceu a senha? <span style="color: #ff69b4">Redefinir</span></a>
     </div>
 
-    <div id="reset-container" style="display: none;">
-      <input type="email" id="reset-email" placeholder="Digite seu email">
-      <button class="botao-principal" onclick="enviarCodigo()"><span>Enviar Código</span></button>
-      <div id="codigo-container" style="display: none;">
-        <input type="text" id="codigo-recuperacao" placeholder="Digite o código enviado por email">
-        <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha">
-        <button class="botao-principal" onclick="verificarCodigo()"><span>Alterar Senha</span></button>
+
+
+
+
+
+
+ <!-- Seção: Recuperar Senha -->
+    <div id="form-recuperar" class="form-section" style="display: none;">
+      <h2>Redefinir senha</h2>
+      <input type="email" id="reset-email" placeholder="Digite seu email" />
+      <button class="botao-principal" onclick="enviarCodigo()"><span>Enviar código</span></button>
+
+      <div id="codigo-container" style="display:none; margin-top: 10px;">
+        <input type="text" id="codigo-recuperacao" placeholder="Código recebido" />
+        <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha" />
+        <button class="botao-principal" onclick="verificarCodigo()"><span>Redefinir senha</span></button>
       </div>
+
       <div id="erro-reset" style="color: red; display: none; margin-top: 5px; font-size: 14px;"></div>
+      <p><span class="link-login" onclick="mostrarLogin()">Voltar para login</span></p>
     </div>
 
+
+
+
+<!-- botão termos -->
     <button class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
     <p style="color: white; margin-top: 15px;" id="alternar-login" onclick="alternarModo()">
       Já possui uma conta? <span class="link-login">Fazer login</span> </p>
     <p class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
+
+
+
+
+
 
 <!-- Modal dos Termos -->
 <div id="modal-termos" class="modal-termos">
@@ -367,9 +395,13 @@
       <p>Não garantimos disponibilidade contínua dos serviços. Podemos realizar manutenções quando necessário.</p>
     </div>
   </div>
-
   <button class="botao-principal" onclick="fecharTermos()"><span>Entendi</span></button>
 </div>
+
+
+
+
+
   </div>
 </div>
 
