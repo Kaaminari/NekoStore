@@ -358,7 +358,7 @@
 
 
 <!-- botão termos -->
-    <button id="termos-button" class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
+    <button id="termos-texto class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
     <p style="color: white; margin-top: 15px;" id="alternar-login" onclick="alternarModo()">
       Já possui uma conta? <span class="link-login">Fazer login</span> </p>
     <p class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
@@ -579,7 +579,7 @@ function atualizarModal() {
   const linkTexto = document.getElementById('alternar-login');
   const codigoContainer = document.getElementById('codigo-container');
   const recuperacaoContainer = document.getElementById('recuperacao-container');
-  const termosButton = document.getElementById('termos-button');
+  const termostexto = document.getElementById('termos-texto');
   const modalTermos = document.getElementById('modal-termos');
 
   codigoContainer.style.display = 'none';
@@ -591,14 +591,14 @@ function atualizarModal() {
     botaoTexto.innerText = 'Entrar';
     linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
     recuperacaoContainer.style.display = 'block';
-    termosButton.style.display = 'block';
+    termostexto.style.display = 'block';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
     recuperacaoContainer.style.display = 'none';
-    termosButton.style.display = 'none';
+    termostexto.style.display = 'none';
   }
 }
 
