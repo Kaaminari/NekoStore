@@ -178,7 +178,7 @@ function abrirModal() {
 
 function verificarLogin() {
   const logado = localStorage.getItem('logado');
-  if (logado) {
+  if (!logado) {
     alert(`Você já está logado como ${logado}`);
     // Ou redireciona, se quiser:
     // window.location.href = '/minha-conta.html';
