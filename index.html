@@ -489,13 +489,13 @@ function abrirTermos() {
   const modalLogin = document.getElementById("modal-login");
 
   // Ocultar o modal de login, mas não o de termos
-  modalLogin.style.display = "none";
+  modalLogin.style.display = "block";
   
   // Exibir o modal de termos
-  modalTermos.style.display = "flex";
-  modalTermos.classList.add("show");
+  modalTermos.style.display = "none";
+  modalTermos.classList.add("none);
 }
-    
+ 
 function fecharTermos() {
   const modalTermos = document.getElementById("modal-termos");
   const modalLogin = document.getElementById("modal-login");
