@@ -2,9 +2,19 @@ wlet codigoRecuperacao = null;
 let tentativas = 0;
 
 function mostrarRecuperacao() {
-  const email = document.getElementById('novo-email').value;
+  document.getElementById('reset-container').style.display = 'block';
+  document.getElementById('novo-usuario').style.display = 'none';
+  document.getElementById('nova-senha').style.display = 'none';
+  document.getElementById('recuperacao-container').style.display = 'none';
+}
+
+function enviarCodigo() {
+  const email = document.getElementById('reset-email').value;
+  const erroElement = document.getElementById('erro-reset');
+  
   if (!email) {
-    mostrarErro("Digite seu email primeiro");
+    erroElement.textContent = "Por favor, preencha o email";
+    erroElement.style.display = 'block';
     return;
   }
 
@@ -12,7 +22,8 @@ function mostrarRecuperacao() {
   const usuario = usuarios.find(u => u.email === email);
 
   if (!usuario) {
-    mostrarErro("Email não encontrado");
+    erroElement.textContent = "Email não encontrado";
+    erroElement.style.display = 'block';
     return;
   }
 
@@ -24,9 +35,7 @@ function mostrarRecuperacao() {
   alert(`Código enviado para ${email}`);
 
   document.getElementById('codigo-container').style.display = 'block';
-  document.getElementById('novo-usuario').style.display = 'none';
-  document.getElementById('nova-senha').style.display = 'none';
-  document.getElementById('recuperacao-container').style.display = 'none';
+  erroElement.style.display = 'none';
 }
 
 function mostrarErro(mensagem) {
