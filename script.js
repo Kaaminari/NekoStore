@@ -1,4 +1,4 @@
-let codigoRecuperacao = null;
+wlet codigoRecuperacao = null;
 let tentativas = 0;
 
 function mostrarRecuperacao() {
@@ -169,17 +169,23 @@ function abrirModal() {
 function verificarLogin() {
   const logado = localStorage.getItem('logado');
   if (logado) {
-    return; // Usuário já logado, não abre modal
+    alert(`Você já está logado como ${logado}`);
+    // Ou redireciona, se quiser:
+    // window.location.href = '/minha-conta.html';
+  } else {
+    abrirModal(); // Só abre se NÃO estiver logado
   }
-
-  abrirModal(); // Só abre se NÃO estiver logado
 }
-
 
 
 window.onload = () => {
   const logado = localStorage.getItem('logado');
-  if (logado) {
-    document.getElementById('botao-texto-header').innerText = logado;
+  const botao = document.querySelector('.botao-principal');
+
+  if (logado && botao) {
+    botao.innerHTML = `<span>${logado}</span>`;
+    botao.onclick = () => {
+      alert(`Você já está logado como ${logado}`);
+    };
   }
 };
