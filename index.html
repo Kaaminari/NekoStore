@@ -324,10 +324,15 @@
       <a onclick="mostrarRecuperacao()" style="color: white; cursor: pointer; font-size: 14px;">Esqueceu a senha? <span style="color: #ff69b4">Redefinir</span></a>
     </div>
 
-    <div id="codigo-container" style="display: none;">
-      <input type="text" id="codigo-recuperacao" placeholder="Digite o código enviado por email">
-      <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha">
-      <div id="erro-codigo" style="color: red; display: none; margin-top: 5px; font-size: 14px;"></div>
+    <div id="reset-container" style="display: none;">
+      <input type="email" id="reset-email" placeholder="Digite seu email">
+      <button class="botao-principal" onclick="enviarCodigo()"><span>Enviar Código</span></button>
+      <div id="codigo-container" style="display: none;">
+        <input type="text" id="codigo-recuperacao" placeholder="Digite o código enviado por email">
+        <input type="password" id="nova-senha-recuperacao" placeholder="Nova senha">
+        <button class="botao-principal" onclick="verificarCodigo()"><span>Alterar Senha</span></button>
+      </div>
+      <div id="erro-reset" style="color: red; display: none; margin-top: 5px; font-size: 14px;"></div>
     </div>
 
     <button class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
