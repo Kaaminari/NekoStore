@@ -168,10 +168,11 @@ function abrirModal() {
 
 function verificarLogin() {
   const logado = localStorage.getItem('logado');
-  if (logado) {
-    return; // Se estiver logado, não faz nada
+  if (!logado) {
+    abrirModal(); // Se não estiver logado, abre o modal
+    return;
   }
-  abrirModal(); // Se não estiver logado, abre o modal
+  // Se estiver logado, não faz nada
 }
 
 
