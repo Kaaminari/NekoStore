@@ -166,7 +166,6 @@ function mostrarRecuperacao() {
   document.getElementById('recuperacao-container').style.display = 'none';
   document.querySelector('.botao-principal').style.display = 'none';
   document.getElementById('alternar-login').style.display = 'none';
-  document.querySelector('.termos').style.display = 'none';
 }
 
 
