@@ -511,26 +511,22 @@ function atualizarModal() {
   const inputNome = document.getElementById('novo-usuario');
   const botaoTexto = document.querySelector('.modal .botao-principal span');
   const linkTexto = document.getElementById('alternar-login');
-  const termosTexto = document.querySelector('.termos');
   const codigoContainer = document.getElementById('codigo-container');
   const recuperacaoContainer = document.getElementById('recuperacao-container');
   
   codigoContainer.style.display = 'none';
-  termosTexto.style.display = modo === 'cadastro' ? 'block' : 'none';
   
   if (modo === 'login') {
     titulo.innerText = 'Fazer login';
     inputNome.style.display = 'none';
     botaoTexto.innerText = 'Entrar';
     linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
-    termosTexto.style.display = 'none';
     recuperacaoContainer.style.display = 'block';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
-    termosTexto.style.display = 'block';
     recuperacaoContainer.style.display = 'none';
   }
 }
