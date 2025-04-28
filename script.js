@@ -140,46 +140,6 @@ function alternarModo() {
   atualizarModal();
 }
 
-function atualizarModal() {
-  const titulo = document.getElementById('modal-title');
-  const inputNome = document.getElementById('novo-usuario');
-  const botaoTexto = document.querySelector('.modal .botao-principal span');
-  const linkTexto = document.getElementById('alternar-login');
-  const recuperacaoContainer = document.getElementById('recuperacao-container');
-  const resetContainer = document.getElementById('reset-container');
-  const termos = document.querySelector('.termos');
-
-  resetContainer.style.display = 'none';
-
-  if (modo === 'login') {
-    titulo.innerText = 'Fazer login';
-    inputNome.style.display = 'none';
-    botaoTexto.innerText = 'Entrar';
-    linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
-    termos.style.display = 'none';
-    recuperacaoContainer.style.display = 'block';
-  } else {
-    titulo.innerText = 'Fazer cadastro';
-    inputNome.style.display = 'block';
-    botaoTexto.innerText = 'Continuar';
-    linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
-    termos.style.display = 'block';
-    recuperacaoContainer.style.display = 'none';
-  }
-}
-
-function abrirModal() {
-  const modal = document.getElementById("modal-login");
-  const overlay = document.getElementById("overlay");
-  modal.style.display = "block";
-  overlay.style.display = "block";
-}
-
-
-
-
-
-
 function mostrarCadastro() {
   document.getElementById('form-cadastro').style.display = 'flex';
   document.getElementById('form-login').style.display = 'none';
