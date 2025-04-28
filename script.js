@@ -42,9 +42,9 @@ document.querySelector('.botao-principal').onclick = () => {
   const logado = localStorage.getItem('logado');
   
   if (logado) {
-    alert(`Você já está logado como ${logado}`);
+    location.reload(); // Se estiver logado, apenas recarrega a página
   } else {
-    abrirModal();  // Se não estiver logado, abre o modal
+    abrirModal(); // Se não estiver logado, abre o modal
   }
 };
 
