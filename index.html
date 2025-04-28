@@ -465,6 +465,18 @@ function fecharTermos() {
     modalTermos.style.animation = "";
   }, 300);
 }
+    
+function verificarLogin() {
+  const logado = localStorage.getItem('logado');
+  if (logado) {
+    alert(`Você já está logado como ${logado}`);
+    // Ou redireciona, se quiser:
+    // window.location.href = '/minha-conta.html';
+  } else {
+    abrirModal(); // Só abre se NÃO estiver logado
+  }
+}
+
 function abrirModal() {
   const modal = document.getElementById("modal-login");
   const overlay = document.getElementById("overlay");
