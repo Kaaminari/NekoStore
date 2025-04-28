@@ -533,9 +533,12 @@ function verificarLogin() {
 function abrirModal() {
   const modal = document.getElementById("modal-login");
   const overlay = document.getElementById("overlay");
+  const termos = document.getElementById("modal-termos"):
 
   modal.style.display = "flex";
   overlay.style.display = "block";
+  termos.style.display = "block";
+
 
   // Define o modo como cadastro por padrão
   modo = 'cadastro';
