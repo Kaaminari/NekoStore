@@ -42,7 +42,7 @@ document.querySelector('.botao-principal').onclick = () => {
   const logado = localStorage.getItem('logado');
   
   if (logado) {
-    location.reload(); // Se estiver logado, apenas recarrega a página
+    window.open('https://www.google.com', '_blank'); // Abre o Google em nova aba se estiver logado
   } else {
     abrirModal(); // Se não estiver logado, abre o modal
   }
