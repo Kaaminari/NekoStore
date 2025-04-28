@@ -513,8 +513,10 @@ function atualizarModal() {
   const linkTexto = document.getElementById('alternar-login');
   const codigoContainer = document.getElementById('codigo-container');
   const recuperacaoContainer = document.getElementById('recuperacao-container');
+  const modalTermos = document.getElementById('modal-termos');
   
   codigoContainer.style.display = 'none';
+  modalTermos.style.display = 'none';
   
   if (modo === 'login') {
     titulo.innerText = 'Fazer login';
