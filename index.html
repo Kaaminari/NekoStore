@@ -356,12 +356,13 @@
 
 
 
-
-<!-- botão termos -->
     <button class="botao-principal" onclick="fazerCadastroOuLogin()"><span>Continuar</span></button>
     <p style="color: white; margin-top: 15px;" id="alternar-login" onclick="alternarModo()">
       Já possui uma conta? <span class="link-login">Fazer login</span> </p>
-    <p class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
+
+
+<!-- botão termos -->
+    <p id="termos-texto" class="termos">Ao criar sua conta você concorda com os <span style="color: #ff69b4; cursor: pointer;" onclick="abrirTermos()">Termos de Serviço</span></p>
 
 
 
@@ -579,7 +580,7 @@ function atualizarModal() {
   const linkTexto = document.getElementById('alternar-login');
   const codigoContainer = document.getElementById('codigo-container');
   const recuperacaoContainer = document.getElementById('recuperacao-container');
-  const termostexto = document.getElementById('alternar-login');
+  const termostexto = document.getElementById('termos-texto');
   const modalTermos = document.getElementById('modal-termos');
 
   codigoContainer.style.display = 'none';
