@@ -170,18 +170,6 @@ function abrirModal() {
   overlay.style.display = "block";
 }
 
-function verificarLogin() {
-  const logado = localStorage.getItem('logado');
-  if (logado) {
-    alert(`Você já está logado como ${logado}`);
-    // Ou redireciona, se quiser:
-    // window.location.href = '/minha-conta.html';
-  } else {
-    abrirModal(); // Só abre se NÃO estiver logado
-  }
-}
-
-
 window.onload = () => {
   const logado = localStorage.getItem('logado');
   const botao = document.querySelector('.botao-principal');
