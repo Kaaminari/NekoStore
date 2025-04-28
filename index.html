@@ -485,15 +485,17 @@
 
   <script>
 function abrirTermos() {
-  const modal = document.getElementById("modal-termos");
-  const overlay = document.getElementById("overlay");
+  const modalTermos = document.getElementById("modal-termos");
   const modalLogin = document.getElementById("modal-login");
-  
-  modalLogin.style.display = "none";
-  modal.style.display = "flex";
-  modal.classList.add("show");
-}
 
+  // Ocultar o modal de login, mas não o de termos
+  modalLogin.style.display = "none";
+  
+  // Exibir o modal de termos
+  modalTermos.style.display = "flex";
+  modalTermos.classList.add("show");
+}
+    
 function fecharTermos() {
   const modalTermos = document.getElementById("modal-termos");
   const modalLogin = document.getElementById("modal-login");
@@ -503,6 +505,8 @@ function fecharTermos() {
 
   setTimeout(() => {
     modalTermos.style.display = "none";
+    
+    // Após fechar o modal de termos, reexibir o modal de login
     modalLogin.style.display = "flex";
     modalTermos.style.animation = "";
   }, 300);
