@@ -38,6 +38,15 @@ function mostrarErro(mensagem) {
   }, 3000);
 }
 
+document.querySelector('.botao-principal').onclick = () => {
+  const logado = localStorage.getItem('logado');
+  if (!logado) {
+    abrirModal(); // Se não estiver logado, abre o modal
+  } else {
+    alert(`Você já está logado como ${logado}`);
+  }
+};
+
 function verificarCodigo() {
   const codigoDigitado = document.getElementById('codigo-recuperacao').value;
   const novaSenha = document.getElementById('nova-senha-recuperacao').value;
