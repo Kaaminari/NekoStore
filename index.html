@@ -584,8 +584,7 @@ function atualizarModal() {
   const linkTexto = document.getElementById('alternar-login');
   const codigoContainer = document.getElementById('codigo-container');
   const recuperacaoContainer = document.getElementById('recuperacao-container');
-  const termostexto = document.getElementById('termos-texto');
-
+  
   codigoContainer.style.display = 'none';
 
   if (modo === 'login') {
@@ -594,14 +593,12 @@ function atualizarModal() {
     botaoTexto.innerText = 'Entrar';
     linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
     recuperacaoContainer.style.display = 'block';
-    termostexto.style.display = 'none';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
     botaoTexto.innerText = 'Continuar';
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
     recuperacaoContainer.style.display = 'none';
-    termostexto.style.display = 'block';
   }
 }
 
