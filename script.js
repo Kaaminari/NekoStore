@@ -40,10 +40,11 @@ function mostrarErro(mensagem) {
 
 document.querySelector('.botao-principal').onclick = () => {
   const logado = localStorage.getItem('logado');
-  if (!logado) {
-    abrirModal(); // Se não estiver logado, abre o modal
-  } else {
+  
+  if (logado) {
     alert(`Você já está logado como ${logado}`);
+  } else {
+    abrirModal();  // Se não estiver logado, abre o modal
   }
 };
 
