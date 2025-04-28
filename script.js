@@ -4,7 +4,7 @@ let tentativas = 0;
 function enviarCodigo() {
   const email = document.getElementById('reset-email').value;
   const erroElement = document.getElementById('erro-reset');
-  
+
   if (!email) {
     erroElement.textContent = "Por favor, preencha o email";
     erroElement.style.display = 'block';
@@ -170,6 +170,17 @@ function abrirModal() {
   const overlay = document.getElementById("overlay");
   modal.style.display = "block";
   overlay.style.display = "block";
+}
+
+function mostrarRecuperacao() {
+  document.getElementById('reset-container').style.display = 'block';
+  document.getElementById('novo-usuario').style.display = 'none';
+  document.getElementById('nova-senha').style.display = 'none';
+  document.getElementById('novo-email').style.display = 'none';
+  document.getElementById('recuperacao-container').style.display = 'none';
+  document.querySelector('.botao-principal').style.display = 'none';
+  document.getElementById('alternar-login').style.display = 'none';
+  document.querySelector('.termos').style.display = 'none';
 }
 
 window.onload = () => {
