@@ -584,7 +584,6 @@ function atualizarModal() {
   const modalTermos = document.getElementById('modal-termos');
 
   codigoContainer.style.display = 'none';
-  modalTermos.style.display = 'none';
 
   if (modo === 'login') {
     titulo.innerText = 'Fazer login';
@@ -593,6 +592,7 @@ function atualizarModal() {
     linkTexto.innerHTML = 'Não possui uma conta? <span class="link-login">Fazer cadastro</span>';
     recuperacaoContainer.style.display = 'block';
     termostexto.style.display = 'none';
+    modalTermos.style.display = 'none';
   } else {
     titulo.innerText = 'Fazer cadastro';
     inputNome.style.display = 'block';
@@ -600,6 +600,7 @@ function atualizarModal() {
     linkTexto.innerHTML = 'Já possui uma conta? <span class="link-login">Fazer login</span>';
     recuperacaoContainer.style.display = 'none';
     termostexto.style.display = 'block';
+    modalTermos.style.display = 'block';
   }
 }
 
