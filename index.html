@@ -454,21 +454,32 @@
 function abrirTermos() {
   const modal = document.getElementById("modal-termos");
   const overlay = document.getElementById("overlay");
-
+  const modalLogin = document.getElementById("modal-login");
+  
+  modalLogin.style.display = "none";
   modal.style.display = "flex";
-  overlay.style.display = "block";
   modal.classList.add("show");
 }
 
 function fecharTermos() {
   const modalTermos = document.getElementById("modal-termos");
+  const modalLogin = document.getElementById("modal-login");
+  
   modalTermos.classList.remove("show");
   modalTermos.style.animation = "zoomOut 0.3s ease";
 
   setTimeout(() => {
     modalTermos.style.display = "none";
+    modalLogin.style.display = "flex";
     modalTermos.style.animation = "";
   }, 300);
+}
+
+function mostrarRecuperacao() {
+  document.getElementById('reset-container').style.display = 'block';
+  document.getElementById('novo-usuario').style.display = 'none';
+  document.getElementById('nova-senha').style.display = 'none';
+  document.getElementById('recuperacao-container').style.display = 'none';
 }
     
 function verificarLogin() {
