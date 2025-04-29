@@ -653,7 +653,10 @@ window.onload = () => {
   const logado = localStorage.getItem('logado');
   if (logado) {
     const botao = document.querySelector('.botao-principal');
-    if (botao) botao.innerHTML = `<span>Minha Conta</span>`;
+    if (botao) {
+      botao.innerHTML = `<span>Minha Conta</span>`;
+      botao.onclick = () => window.location.href = 'public/minha-conta.html';
+    }
   }
 };
 
