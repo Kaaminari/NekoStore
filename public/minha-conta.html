@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minha Conta - Neko Store</title>
-  <link rel="icon" type="image/png" href="imagens/icon.png">
+  <link rel="icon" type="image/png" href="../imagens/icon.png">
   <style>
     body {
       margin: 0;
@@ -142,12 +142,12 @@
 <body>
   <header class="header">
     <div class="logo-container">
-      <img src="imagens/icon.png" alt="Logo" class="logo-img">
+      <img src="../imagens/icon.png" alt="Logo" class="logo-img">
       <h1>Neko Store</h1>
     </div>
     <input type="text" placeholder="Procure pelo nome do produto" class="search-bar">
     <div class="actions">
-      <button class="btn btn-primary" onclick="window.location.href='index.html'">Voltar</button>
+      <button class="btn btn-primary" onclick="window.location.href='../index.html'">Voltar</button>
     </div>
   </header>
 
@@ -186,11 +186,10 @@
   </main>
 
   <script>
-    // Carregar dados do usuário
     window.onload = () => {
       const logado = localStorage.getItem('logado');
       if (!logado) {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
         return;
       }
 
