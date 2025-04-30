@@ -16,7 +16,7 @@ body {
   display: inline-block;
   transition: filter 0.3s ease, transform 0.3s ease;
   position: relative;
-  height: 50px;
+  height: 100px;
 }
 
 .discord-link:hover {
