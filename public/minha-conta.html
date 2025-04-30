@@ -11,6 +11,7 @@
         padding: 0;
         color: white;
         font-family: Arial, sans-serif;
+        overflow-y: auto; 
         min-height: 100vh;
         position: relative;
       }
@@ -169,20 +170,35 @@
         box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("../imagens/fundo.jpg");
-        background-size: cover;
-        background-position: center;
-        filter: blur(0px);
-        z-index: -1;
-      }
+/* 1) Garanta que o <html> tenha fundo escuro */
+/*    sem isso, quando o ::before não cobrir tudo, aparece branco */
+html {
+  background-color: #000;
+  overflow-x: hidden;            /* evita scroll horizontal fantasma */
+  overscroll-behavior-y: none;    /* previne “bounce” / scroll beyond */
+}
 
+/* 2) Expanda o ::before para cobrir o espalhamento do blur */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10px;                     /* expande 10px acima */
+  left: -10px;                    /* expande 10px à esquerda */
+  width: calc(100% + 20px);       /* cobre o extra gerado pelo blur */
+  height: calc(100% + 20px);      /* cobre o extra gerado pelo blur */
+  background-image: url("../imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+/* 3) Impede que o body cresça além da viewport sem necessidade */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
       /* Estilos da neve */
       .neve-container {
         position: fixed;
