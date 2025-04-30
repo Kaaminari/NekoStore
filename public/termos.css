@@ -1,0 +1,50 @@
+.modal-termos.show {
+  animation: zoomIn 0.3s ease;
+}
+
+.modal-termos {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0a0a0a;
+  color: white;
+  padding: 30px;
+  border: 1px solid #333;
+  border-radius: 15px;
+  z-index: 9999;
+  width: 100%;
+  width: 240%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+  overflow: hidden;
+}
+
+.termos-conteudo {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  display: flex;
+  gap: 40px;
+  scroll-behavior: smooth;
+}
+
+.termos-conteudo > div {
+  min-width: 350px;
+  flex-shrink: 0;
+}
+
+.termos-conteudo h3 {
+  color: #ff69b4;
+  margin: 10px 0;
+}
+
+.termos-conteudo p {
+  line-height: 1.6;
+}
