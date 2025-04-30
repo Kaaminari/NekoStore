@@ -12,6 +12,17 @@ body {
   padding: 20px;
 }
 
+.discord-link {
+  display: inline-block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.discord-link:hover {
+  filter: brightness(1.4); /* Aumenta o brilho */
+  transform: scale(1.05); /* Dá um leve zoom */
+}
+
 header {
   background: rgba(58, 7, 88, 0.3);
   backdrop-filter: blur(8px);
