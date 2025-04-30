@@ -48,3 +48,45 @@
 .termos-conteudo p {
   line-height: 1.6;
 }
+
+/* Botão Principal */
+.botao-principal {
+  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* botão */
+.botao-principal::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: top 0.4s ease;
+  z-index: 1;
+}
+
+.botao-principal:hover::before {
+  top: 0;
+}
+
+.botao-principal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px #ff69b4;
+}
+
+/* Texto no botão sempre acima da animação */
+.botao-principal span, .botao-principal {
+  position: relative;
+  z-index: 2;
+}
