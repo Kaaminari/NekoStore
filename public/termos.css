@@ -22,17 +22,16 @@
 }
 
 .termos-conteudo {
-  max-width: 100%;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  white-space: normal;
+  overflow: auto;
   padding: 20px;
   background: rgba(255,255,255,0.05);
   border-radius: 8px;
-  display: flex;
-  gap: 40px;
-  scroll-behavior: smooth;
 }
+
 
 .termos-conteudo > div {
   min-width: 350px;
