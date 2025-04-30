@@ -8,13 +8,22 @@
 </head>
 <style>    
 
+body {
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow-y: auto; 
+        min-height: 100vh;
+        position: relative;
+      }
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
     }
-    body::before {
+body::before {
       content: "";
       position: fixed;
       top: 0;
