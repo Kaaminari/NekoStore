@@ -172,6 +172,8 @@ header {
 }
 
 .logo-container {
+  position: relative; /* ou absolute, dependendo do contexto */
+  left: 100px; /* move para a direita */
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -184,6 +186,11 @@ header {
 
 .logo-container:hover .logo-img {
   transform: scale(1.1);
+}
+
+.logo-container:hover .logo-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
 }
 
 .logo-text {
@@ -201,11 +208,6 @@ header {
   pointer-events: none;
   white-space: nowrap;
   box-shadow: 0 0 10px #ff5ec4aa;
-}
-
-.logo-container:hover .logo-text {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
 }
 
 main {
