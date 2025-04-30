@@ -273,6 +273,19 @@ header {
   transform: translateX(-50%) translateY(-5px);
 }
 
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.top-bar img {
+  height: 30px;
+  border-radius: 8px;
+}
+
 .search-bar {
   position: relative;
   flex: 1;
@@ -413,9 +426,12 @@ header {
       }
     </style>
   </head>
+
   <body>
-    <div class="neve-container"></div>
+    <div class="neve-container"></div>}
+
     <header class="header">
+      <div class="top-bar">
       <div class="logo-container">
         <img src="../imagens/icon.png" alt="Logo" class="logo-img" style="height: 30px; border-radius: 8px;" />
         <div class="logo-text">Neko Store #1</div>
