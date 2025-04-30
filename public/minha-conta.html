@@ -253,22 +253,55 @@ html, body {
         border-radius: 8px;
       }
 
-      .search-bar {
-        flex: 1;
-        max-width: 500px;
-        margin: 0 20px;
-        padding: 10px 15px;
-        border-radius: 8px;
-        border: none;
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-      }
+.search-bar {
+  position: relative;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 18px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  backdrop-filter: blur(4px);
+  outline: none;
+  max-width: 500px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
 
-      .actions {
-        display: flex;
-        gap: 15px;
-      }
+/* Linha gradiente embaixo e fundo mais claro ao passar o mouse */
+.search-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #b03fff, #ff9bff);
+  transition: width 0.3s ease;
+  border-radius: 20px;
+  pointer-events: none;
+}
 
+.search-bar:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.search-bar:hover::after {
+  width: 100%;
+}
+
+/* Borda sólida roxa com brilho ao focar */
+.search-bar:focus {
+  border: 2px solid rgba(176, 63, 255, 0.9);
+  box-shadow: 0 0 8px rgba(176, 63, 255, 0.6);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
       .btn {
         padding: 8px 16px;
         border-radius: 8px;
