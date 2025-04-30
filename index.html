@@ -540,6 +540,13 @@
 </body>
 
 <script>
+function abrirTermosManual() {
+  const modal = document.getElementById("modal-termos");
+
+  modal.style.display = "flex";
+  modal.classList.add("show");
+}
+
 function abrirTermos() {
   const modal = document.getElementById("modal-termos");
   const overlay = document.getElementById("overlay");
