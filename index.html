@@ -416,6 +416,10 @@
   <button class="botao-principal" onclick="fecharTermos()"><span>Entendi</span></button>
 </div>
 
+
+
+
+    
 <!-- Modal dos Termos Manual -->
 <div id="modal-termos-manual" class="modal-termos">
   <span class="fechar" onclick="fecharTermos()">✕</span>
@@ -573,7 +577,9 @@
 <script>
 function abrirTermosManual() {
   const modal = document.getElementById("modal-termos-manual");
- 
+  const overlay = document.getElementById("overlay");
+  
+  overlay.style.display = "none";
   modal.style.display = "flex";
   modal.classList.add("show");
 }
