@@ -572,11 +572,9 @@
 <script>
 function abrirTermosManual() {
   const modal = document.getElementById("modal-termos-manual");
-  if (modal) {
-    modal.style.display = "block";
-  } else {
-    console.error("Modal 'termosModal' não encontrado!");
-  }
+ 
+  modal.style.display = "flex";
+  modal.classList.add("show");
 }
 
   
