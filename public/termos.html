@@ -24,19 +24,21 @@ body, html {
         width: 100%;
         overflow-x: hidden;
     }
+
+/* 2) Expanda o ::before para cobrir o espalhamento do blur */
 body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('../imagens/fundo.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px);
-      z-index: -1;
-    }
+  content: "";
+  position: fixed;
+  top: -10px;                     /* expande 10px acima */
+  left: -10px;                    /* expande 10px à esquerda */
+  width: calc(100% + 20px);       /* cobre o extra gerado pelo blur */
+  height: calc(100% + 20px);      /* cobre o extra gerado pelo blur */
+  background-image: url("../imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  z-index: -1;
+}
 
 </style>
 <body>
