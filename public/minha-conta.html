@@ -57,17 +57,77 @@
     }
 
     .tab {
-      background: rgba(255, 105, 180, 0.1);
+      background: linear-gradient(90deg, #ff69b4, #ff00aa);
+      color: white;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      border: none;
+      outline: none;
+      position: relative;
+    }
+
+    .tab::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: bottom 0.4s ease;
+      z-index: 0;
+    }
+
+    .tab:hover::before {
+      bottom: 0;
+    }
+
+    .tab:hover {
+      transform: scale(1.05);
+      box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
     }
 
     .tab.active {
-      background: #ff69b4;
+      background: linear-gradient(90deg, #ff69b4, #ff00aa);
     }
 
     .btn-update {
       background: linear-gradient(90deg, #ff69b4, #ff00aa);
       position: relative;
       overflow: hidden;
+      color: white;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-update::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: bottom 0.4s ease;
+      z-index: 0;
+    }
+
+    .btn-update:hover::before {
+      bottom: 0;
+    }
+
+    .btn-update:hover {
+      transform: scale(1.05);
+      box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
     }
 
     .btn-update::before {
