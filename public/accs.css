@@ -29,7 +29,12 @@
   font-weight: 500;
 }
 
-.produto-infos-laterais {
+
+
+
+
+
+.lateral-infos {
   display: flex;
   flex-direction: column;
   gap: 15px;
