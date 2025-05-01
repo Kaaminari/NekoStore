@@ -18,31 +18,14 @@
   margin-bottom: 15px;
 }
 
-.pix-disponivel {
+.accs-metodos {
   list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 25px;
 }
 
-.pix-disponivel li {
+.accs-metodos li {
   margin-bottom: 8px;
   font-weight: 500;
 }
 
-.pix-alertas p {
-  margin: 10px 0;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.pix-alertas p:first-child {
-  color: #ffcc00;
-}
-
-.pix-alertas p:nth-child(2) {
-  color: #ff4444;
-}
-
-.pix-alertas p:last-child {
-  color: #ccc;
-}
