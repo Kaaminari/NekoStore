@@ -111,6 +111,56 @@
       position: relative;
       z-index: 1;
     }
+
+
+    /* Estilos da neve */
+    .neve-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .floco {
+      position: absolute;
+      top: -10px;
+      width: 6px;
+      height: 6px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: cair 8s linear infinite;
+    }
+    @keyframes cair {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(100px, 100vh) rotate(360deg); }
+    }
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -188,6 +238,24 @@
         el.innerHTML = substituirEmojis(el.innerHTML);
       });
     };
+
+
+// NEVE
+    const container = document.querySelector('.neve-container');
+
+    function criarFloco() {
+      const floco = document.createElement('div');
+      floco.classList.add('floco');
+      floco.style.left = Math.random() * 100 + 'vw';
+      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
+      container.appendChild(floco);
+
+      setTimeout(() => {
+        floco.remove();
+      }, 10000);
+    }
+
+    setInterval(criarFloco, 200);
 </script>
 
 </body>
