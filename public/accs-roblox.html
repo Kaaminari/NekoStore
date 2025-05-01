@@ -1,593 +1,263 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minha Conta - Neko Store</title>
-    <link rel="icon" type="image/png" href="../imagens/icon.png" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        color: white;
-        font-family: Arial, sans-serif;
-        overflow-y: auto; 
-        min-height: 100vh;
-        position: relative;
-      }
-      
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produto - Neko Store</title>
+  <link rel="icon" href="../imagens/icon.png" type="image/png" />
+  <link rel="stylesheet" href="accs.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #0a0a0a;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -10px;
+      left: -10px;
+      width: calc(100% + 20px);
+      height: calc(100% + 20px);
+      background-image: url('../imagens/fundo.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .produto-imagem {
+      flex: 1;
+      max-width: 400px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .produto-imagem img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .produto-info {
+      flex: 2;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .preco {
+      font-size: 1.5rem;
+      color: #ff69b4;
+      margin: 15px 0;
+    }
+
+    .descricao {
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #ff69b4, #ff00aa);
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: bottom 0.4s ease;
+      z-index: 0;
+    }
+
+    .btn:hover::before {
+      bottom: 0;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+
+    .emoji-gif {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+    }
+
+    /* Estilos da neve */
+    .neve-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .floco {
+      position: absolute;
+      top: -10px;
+      width: 6px;
+      height: 6px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: cair 8s linear infinite;
+    }
+    @keyframes cair {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(100px, 100vh) rotate(360deg); }
+    }
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
-main {
-  flex: 1;
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
 }
 
-/* Scrollbar bonita */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 10px;
-}
+  </style>
+</head>
+<body>
+ <div class="neve-container"></div>
+  <div class="container">
+    <div class="produto-imagem">
+      <img src="../imagens/image.jpg" alt="acc" />
+    </div>
 
-::-webkit-scrollbar-track {
-  background: rgba(255, 105, 180, 0.1);
-  border-radius: 10px;
-}
+    <div class="produto-info">
+     <p class="footer-note">estoque infinito</p>
+      <h1>Accs Roblox</h1>
+      <div class="preco">R$ 5,00</div>
+      <button class="btn"><span>Comprar agora</span></button>
+      <button class="btn" style="margin-left: 10px;"><span>Adicionar ao carrinho</span></button>
+      <div class="descricao">
+        <h2 style="margin-top: 30px;">Descrição</h2>
+        <p>Este produto é entregue automaticamente após o pagamento. Ideal para quem deseja praticidade e agilidade na sua compra.</p>
+        <ul>
+          <li>Entrega automática</li>
+          <li>Garantia de funcionamento</li>
+          <li>Nota: Bypass incluso não é igual os outros
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #ff69b4, #ff1493);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #ff1493, #ff69b4);
-}
-
-.discord-link {
-  display: inline-block;
-  transition: filter 0.3s ease, transform 0.3s ease;
-  position: relative;
-}
-
-.discord-link:hover {
-  filter: brightness(1.4); /* Aumenta o brilho */
-  transform: scale(1.05); /* Dá um leve zoom */
-}
-
-
-      
-      .btn {
-        position: relative;
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-        color: white;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 12px;
-        cursor: pointer;
-        overflow: hidden;
-        transition: transform 0.2s ease;
-        border: none;
-        outline: none;
-      }
-
-      .btn::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: bottom 0.4s ease;
-        z-index: 0;
-      }
-
-      .btn:hover::before {
-        bottom: 0;
-      }
-
-      .btn:hover {
-        transform: scale(1.05);
-        box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
-      }
-
-      .btn span {
-        position: relative;
-        z-index: 1;
-      }
-
-      .tab {
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-        color: white;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 12px;
-        cursor: pointer;
-        overflow: hidden;
-        transition: transform 0.2s ease;
-        border: none;
-        outline: none;
-        position: relative;
-      }
-
-      .tab::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: bottom 0.4s ease;
-        z-index: 0;
-      }
-
-      .tab:hover::before {
-        bottom: 0;
-      }
-
-      .tab:hover {
-        transform: scale(1.05);
-        box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
-      }
-
-      .tab.active {
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-      }
-
-      .btn-update {
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-        position: relative;
-        overflow: hidden;
-        color: white;
-        font-weight: bold;
-        padding: 10px 16px;
-        border-radius: 12px;
-        cursor: pointer;
-        border: none;
-        outline: none;
-        transition: transform 0.2s ease;
-      }
-
-      .btn-update::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: bottom 0.4s ease;
-        z-index: 0;
-      }
-
-      .btn-update:hover::before {
-        bottom: 0;
-      }
-
-      .btn-update:hover {
-        transform: scale(1.05);
-        box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
-      }
-
-      .btn-update::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -100%;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transition: bottom 0.4s ease;
-        z-index: 0;
-      }
-
-      .btn-update:hover::before {
-        bottom: 0;
-      }
-
-      .btn-update:hover {
-        box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
-      }
-
-/* 1) Garanta que o <html> tenha fundo escuro */
-/*    sem isso, quando o ::before não cobrir tudo, aparece branco */
-html {
-  background-color: #000;
-  overflow-x: hidden;            /* evita scroll horizontal fantasma */
-  overscroll-behavior-y: none;    /* previne “bounce” / scroll beyond */
-}
-
-/* 2) Expanda o ::before para cobrir o espalhamento do blur */
-body::before {
-  content: "";
-  position: fixed;
-  top: -10px;                     /* expande 10px acima */
-  left: -10px;                    /* expande 10px à esquerda */
-  width: calc(100% + 20px);       /* cobre o extra gerado pelo blur */
-  height: calc(100% + 20px);      /* cobre o extra gerado pelo blur */
-  background-image: url("../imagens/fundo.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(6px);
-  z-index: -1;
-}
-
-/* 3) Impede que o body cresça além da viewport sem necessidade */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-      /* Estilos da neve */
-      .neve-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-        overflow: hidden;
-      }
-      .floco {
-        position: absolute;
-        top: -10px;
-        width: 6px;
-        height: 6px;
-        background: pink;
-        border-radius: 50%;
-        opacity: 0.8;
-        animation: cair 8s linear infinite;
-      }
-      @keyframes cair {
-        0% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        100% {
-          transform: translate(100px, 100vh) rotate(360deg);
-        }
-      }
-
-header {
-  background: rgba(58, 7, 88, 0.3);
-  backdrop-filter: blur(8px);
-  padding: 10px 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-.logo-container {
-  position: relative; /* ou absolute, dependendo do contexto */
-  left: 100px; /* move para a direita */
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.logo-img {
-  height: 50px;
-  transition: transform 0.3s ease;
-}
-
-.logo-container:hover .logo-img {
-  transform: scale(1.1);
-}
-
-.logo-container:hover .logo-text {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
-}
-
-.logo-text {
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff5ec4;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 14px;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none;
-  white-space: nowrap;
-  box-shadow: 0 0 10px #ff5ec4aa;
-}
-
-.top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.top-bar img {
-  height: 30px;
-  border-radius: 8px;
-}
-
-.search-bar {
-  position: relative;
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  border-radius: 18px;
-  padding: 10px 20px;
-  color: white;
-  font-size: 16px;
-  backdrop-filter: blur(4px);
-  outline: none;
-  max-width: 500px;
-  transition: all 0.2s ease;
-  z-index: 1;
-}
-
-/* Linha gradiente embaixo e fundo mais claro ao passar o mouse */
-.search-bar::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, #b03fff, #ff9bff);
-  transition: all 0.2s ease;
-  border-radius: 20px;
-  pointer-events: none;
-}
-
-.search-bar:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.search-bar:hover::after {
-  width: 100%;
-}
-
-/* Borda sólida roxa com brilho ao focar */
-.search-bar:focus {
-  border: 2px solid rgba(176, 63, 255, 0.9);
-  box-shadow: 0 0 8px rgba(176, 63, 255, 0.6);
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-      .btn {
-        padding: 8px 16px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        transition: all 0.3s;
-      }
-
-      .btn-primary {
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-        color: white;
-      }
-
-      .main-content {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-
-      .welcome-text {
-        font-size: 2em;
-        margin-bottom: 30px;
-      }
-
-      .account-section {
-        background: rgba(30, 30, 30, 0.5);
-        border-radius: 12px;
-        padding: 30px;
-        margin-bottom: 30px;
-      }
-
-      .form-group {
-        margin-bottom: 20px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: #ff69b4;
-      }
-
-      .form-group input {
-          width: 100%;
-          padding: 10px;
-          border-radius: 6px;
-          border: none;
-          background: rgba(0, 0, 0, 0.4);
-          color: white;
-          outline: none;
-        }
-
-        .form-group input:focus {
-          background: rgba(0, 0, 0, 0.6);
-        }
-
-      .btn-update {
-        background: #ff69b4;
-        color: white;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: all 0.3s;
-      }
-
-      .btn-update:hover {
-        background: #ff1493;
-      }
-
-      .tabs {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 30px;
-      }
-
-      .tab {
-        padding: 10px 20px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.3s;
-        background: rgba(255, 105, 180, 0.1);
-      }
-
-      .tab.active {
-        background: #ff69b4;
-        color: white;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="neve-container"></div>
-
-    <header class="header">
-      <div class="top-bar">
-      <div class="logo-container">
-        <img src="../imagens/icon.png" alt="Logo" class="logo-img" style="height: 50px; border-radius: 8px;" />
-        <div class="logo-text">Neko Store #1</div>
+  <div class="lateral-infos">
+    <div class="info-card">
+      <div class="info-icon">🔒</div>
+      <div class="info-text">
+        <strong>Compra Segura</strong>
+        <p>Sua compra é protegida por criptografia SSL.</p>
       </div>
-      <input type="text" placeholder="Procure pelo nome do produto" class="search-bar" />
-      <div class="actions">
-        <button class="btn btn-primary" onclick="window.location.href='../index.html'" >Voltar</button>
+    </div>
+
+    <div class="info-card">
+      <div class="info-icon">💳</div>
+      <div class="info-text">
+        <strong>Métodos de pagamento</strong>
+        <p>Pix, cartão, saldo ou boleto.</p>
       </div>
-    </header>
-
-    <main class="main-content">
-      <div class="welcome-banner" style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 12px; margin-bottom: 20px; text-align: center;">
-        <p style="margin-bottom: 10px;">Neko Store LTDA</p>
-        <p style="font-size: 14px; color: #ccc;"
-        >Na Neko Store LTDA, você encontra produtos digitais de qualidade, com entregas automáticas, 
-        uma variedade de serviços e produtos, todos entregues com rapidamente e conforme o que é dito. 
-        cada produto tem sua descrição detalhada, regras, suporte e uso. Trabalhamos e esperamos
-        uma boa experiência no nosso site Aqui, você compra com total segurança.</p>
+    </div>
+  </div></li>
+        </ul>
       </div>
-      <div class="tabs">
-        <div class="tab active">Minhas Compras</div>
-        <div class="tab">Configurações</div>
-      </div>
+    </div>
+  </div>
 
-      <section class="account-section">
-        <h2>Minha Conta</h2>
-        <p>
-          Crie configurações de segurança em sua conta e mantenha sua conta
-          segura.
-        </p>
+<section class="descricao-produto">
+  <div class="box-descricao">
+    <h2>:nspin: ACCS ROBLOX </h2>
 
-        <form id="account-form">
-          <div class="form-group">
-            <label>Nome de usuário</label>
-            <input type="text" id="username" readonly />
-          </div>
+    <ul class="accs-metodos">
+      <li>:arrow: Anti revert eficaz</li>
+      <li>:arrow: Bypass</li>
+      <li>:arrow: Tutorial detalhado</li>
+      <li>:arrow: Varios metódos</li>
+      <li>:arrow: Bypass -13y</li>
+    </ul>
+  </div>
+</section>
 
-          <div class="form-group">
-            <label>E-mail</label>
-            <input type="email" id="email" readonly />
-          </div>
+<script>
+    const emojiMap = {
+      ":anotei:": "https://imgur.com/rMUeTdP.png",
+      ":cathide:": "https://imgur.com/xcrY7x1.gif",
+      ":nspin:": "https://imgur.com/TMBdmzg.gif",
+      ":diamond:": "https://imgur.com/qe1gwCq.gif",
+      ":arrow:": "https://imgur.com/dwbw9SU,gif"
+    };
 
-          <div class="form-group">
-            <label>Senha</label>
-            <input type="password" value="********" readonly />
-            <a
-              href="#"
-              style="
-                color: #ff69b4;
-                text-decoration: none;
-                font-size: 0.9em;
-                margin-top: 5px;
-                display: inline-block;
-              "
-            >
-              Mudar senha
-            </a>
-          </div>
+    function substituirEmojis(texto) {
+      for (const emoji in emojiMap) {
+        const imgTag = `<img src="${emojiMap[emoji]}" class="emoji-gif" alt="${emoji}">`;
+        texto = texto.replaceAll(emoji, imgTag);
+      }
+      return texto;
+    }
 
-          <button type="button" class="btn-update">Atualizar</button>
-        </form>
-      </section>
-    </main>
+    window.onload = () => {
+      document.querySelectorAll("p, h1, h2, h3, span, a, li").forEach(el => {
+        el.innerHTML = substituirEmojis(el.innerHTML);
+      });
+    };
 
-    <script>
-      window.onload = () => {
-        const logado = localStorage.getItem("logado");
-        if (!logado) {
-          window.location.href = "../index.html";
-          return;
-        }
 
-        const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
-        const usuario = usuarios.find((u) => u.nome === logado);
-
-        if (usuario) {
-          document.getElementById("username").value = usuario.nome;
-          document.getElementById("email").value = usuario.email;
-        }
-      };
-    </script>
-<footer style="background: rgba(0, 0, 0, 0.8); padding: 40px 20px; margin-top: 50px; width: 97.8%;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
-        <div>
-          <h3 style="color: #ff69b4; margin-bottom: 15px;">Navegação</h3>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="#" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Avaliações (Em Breve)</a></li>
-            <li><a href="#" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Categorias (Em Breve)</a></li>
-            <li><a href="#" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Catálogo (Em Breve)</a></li>
-            <li><a href="#" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Carrinho (Em Breve)</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color: #ff69b4; margin-bottom: 15px;">Empresa</h3>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="../public/termos.html" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Termos de Serviço</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color: #ff69b4; margin-bottom: 15px;">Conta</h3>
-          <ul style="list-style: none; padding: 0;">
-            <li><a href="../public/minha-conta.html" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Minha conta</a></li>
-            <li><a href="#" style="color: white; text-decoration: none; margin-bottom: 8px; display: block;">Minhas compras (Em Breve)</a></li>
-          </ul>
-        </div>
-        <div>
-          <img src="../imagens/icon.png" alt="Logo" style="height: 40px; margin-bottom: 15px; border-radius: 8px;">
-          <p style="color: #ccc; font-size: 14px; margin-bottom: 15px;">Copyright © Neko Store - All Rights Reserved</p>
-          <div style="display: flex; gap: 15px;">
-         <a href="https://discord.gg/tHEzpsEUvA" class="discord-link" style="margin-left: -10px;">
-         <img src="../imagens/discord.png" alt="Discord" style="height: 50px;">
-         </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-</body>
-
-  <script>
-    // NEVE
-    const container = document.querySelector(".neve-container");
+// NEVE
+    const container = document.querySelector('.neve-container');
 
     function criarFloco() {
-      const floco = document.createElement("div");
-      floco.classList.add("floco");
-      floco.style.left = Math.random() * 100 + "vw";
-      floco.style.animationDuration = 6 + Math.random() * 4 + "s";
+      const floco = document.createElement('div');
+      floco.classList.add('floco');
+      floco.style.left = Math.random() * 100 + 'vw';
+      floco.style.animationDuration = (6 + Math.random() * 4) + 's';
       container.appendChild(floco);
 
       setTimeout(() => {
@@ -596,5 +266,7 @@ header {
     }
 
     setInterval(criarFloco, 200);
-  </script>
+</script>
+
+</body>
 </html>
