@@ -232,17 +232,6 @@
       return texto;
     }
 
-    const canvas = document.getElementById("snow");
-    const ctx = canvas.getContext("2d");
-
-    let width, height;
-    let snowflakes = [];
-
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-
     window.onload = () => {
       document.querySelectorAll("p, h1, h2, h3, span, a").forEach(el => {
         el.innerHTML = substituirEmojis(el.innerHTML);
