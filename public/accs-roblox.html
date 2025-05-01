@@ -177,6 +177,12 @@
 
     const canvas = document.getElementById("snow");
     const ctx = canvas.getContext("2d");
+
+    window.onload = () => {
+      document.querySelectorAll("p, h1, h2, h3, span, a").forEach(el => {
+        el.innerHTML = substituirEmojis(el.innerHTML);
+      });
+    };
 </script>
 
 </body>
