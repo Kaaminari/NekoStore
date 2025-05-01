@@ -397,7 +397,7 @@ main {
 /* Produtos - desktop */
 .produtos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 20px;
 }
@@ -405,7 +405,7 @@ main {
 /* Produtos - mobile */
 @media (max-width: 768px) {
   .produtos {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
