@@ -175,6 +175,11 @@
       return texto;
     }
 
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
     const canvas = document.getElementById("snow");
     const ctx = canvas.getContext("2d");
 
