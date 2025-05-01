@@ -140,14 +140,14 @@
 
 <section class="descricao-produto">
   <div class="box-descricao">
-    <h2>🎁 Caixa Pix — Prêmios Instantâneos! 💸</h2>
+    <h2>:nspin: ACCS ROBLOX </h2>
 
     <ul class="accs-metodos">
-      <li>PIX de R$3</li>
-      <li>PIX de R$5</li>
-      <li>PIX de R$10</li>
-      <li>PIX de R$15</li>
-      <li>PIX de R$20</li>
+      <li>:arrow: PIX de R$3</li>
+      <li>:arrow: PIX de R$5</li>
+      <li>:arrow: PIX de R$10</li>
+      <li>:arrow: PIX de R$15</li>
+      <li>:arrow: PIX de R$20</li>
       <li>PIX de R$25</li>
       <li>PIX de R$30</li>
       <li>PIX de R$50</li>
@@ -157,6 +157,27 @@
     </ul>
   </div>
 </section>
+
+<script>
+    const emojiMap = {
+      ":anotei:": "https://imgur.com/rMUeTdP.png",
+      ":cathide:": "https://imgur.com/xcrY7x1.gif",
+      ":nspin:": "https://imgur.com/TMBdmzg.gif",
+      ":diamond:": "https://imgur.com/qe1gwCq.gif",
+      ":arrow:": "https://imgur.com/dwbw9SU,gif"
+    };
+
+    function substituirEmojis(texto) {
+      for (const emoji in emojiMap) {
+        const imgTag = `<img src="${emojiMap[emoji]}" class="emoji-gif" alt="${emoji}">`;
+        texto = texto.replaceAll(emoji, imgTag);
+      }
+      return texto;
+    }
+
+    const canvas = document.getElementById("snow");
+    const ctx = canvas.getContext("2d");
+</script>
 
 </body>
 </html>
