@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Termos de Serviço</title>
+  <link rel="icon" type="image/png" href="../imagens/icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="accs.css" />
+</head>
+<style>    
+
+body {
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: Arial, sans-serif;
+        overflow-y: auto; 
+        min-height: 100vh;
+        position: relative;
+      }
+body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+/* 2) Expanda o ::before para cobrir o espalhamento do blur */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10px;                     /* expande 10px acima */
+  left: -10px;                    /* expande 10px à esquerda */
+  width: calc(100% + 20px);       /* cobre o extra gerado pelo blur */
+  height: calc(100% + 20px);      /* cobre o extra gerado pelo blur */
+  background-image: url("../imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+</style>
+<body>
+
+<!-- Modal dos Termos Manual -->
+<div id="modal-termos-manual" class="modal-termos">
+  <span class="fechar" onclick="fecharTermos()">✕</span>
+  <h2>Termos de Serviço</h2>
+
+  <div class="termos-conteudo" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-height: 500px;">
+    <div>
+      <h3>1. Aceitação dos Termos</h3>
+      <p>Ao utilizar nossos serviços, você concorda com estes termos.</p>
+
+      <h3>2. Política de Não Reembolso</h3>
+      <p>Todos os produtos são digitais e entregues automaticamente. Não oferecemos reembolso após a entrega do produto.</p>
+    </div>
+
+    <div>
+      <h3>3. Responsabilidades</h3>
+      <p>O usuário é responsável por manter suas credenciais seguras e por todas as atividades realizadas em sua conta.</p>
+
+      <h3>4. Uso dos Produtos</h3>
+      <p>Os produtos são para uso pessoal. É proibida a revenda ou distribuição não autorizada.</p>
+    </div>
+
+    <div>
+      <h3>5. Disponibilidade</h3>
+      <p>Não garantimos disponibilidade contínua dos serviços. Podemos realizar manutenções quando necessário.</p>
+    </div>
+  </div>
+
+  <button class="botao-principal" onclick="fecharTermos()"><span>Entendi</span></button>
+</div>
+
+<script>
+  function fecharTermos() {
+    window.location.href = '../index.html';
+  }
+</script>
+
+</body>
+</html>
