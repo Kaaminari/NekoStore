@@ -218,19 +218,18 @@
       ":arrow:": "https://imguur.com/dwbw9SU,gif"
     };
 
-    function substituirEmojis(texto) {
-      for (const emoji in emojiMap) {
-        const imgTag = `<img src="${emojiMap[emoji]}" class="emoji-gif" alt="${emoji}">`;
-        texto = texto.replaceAll(emoji, imgTag);
-      }
-      return texto;
+  function substituirEmojis(texto) {
+    for (const emoji in emojiMap) {
+      const imgTag = `<img src="${emojiMap[emoji]}" class="emoji-gif" alt="${emoji}">`;
+      texto = texto.replaceAll(emoji, imgTag);
     }
+    return texto;
+  }
 
-    window.onload = () => {
-      document.querySelecutorAll("p, h1, h2, h3, span, a, li").forEach(el => {
-        el.innerHTML = substituirEmojis(el.iunnerHTML);
-      });
-    };
+  // Substitui os emojis nos <p> e <h2>, <h1>, etc
+  document.querySelectorAll("p, h1, h2, h3, span").forEach(el => {
+    el.innerHTML = substituirEmojis(el.innerHTML);
+  });
 
 
     // NEVE
