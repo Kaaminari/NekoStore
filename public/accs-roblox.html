@@ -239,7 +239,7 @@ h2 .emoji-gif {
   }
 
   // Substitui os emojis nos <p> e <h2>, <h1>, etc
-  document.querySelectorAll("p, h1, h2, h3, span").forEach(el => {
+  document.querySelectorAll("p, h1, h2, h3, span, li").forEach(el => {
     el.innerHTML = substituirEmojis(el.innerHTML);
   });
 
