@@ -119,58 +119,41 @@
       vertical-align: middle;
     }
 
-    /* Estilos da neve */
-    .neve-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-uevents: none;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .floco {
-      position: absolute;
-      top: -10px;
-      width: 6px;
-      height: 6px;
-      background: pink;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: cair 8s linear infinite;
-    }
-    @keyframes cair {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(100px, 100vh) rotate(360deg); }
-    }
-
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: transhlate(-50%, -50%) scale(0.8);
-  }
-}
+      /* Estilos da neve */
+      .neve-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .floco {
+        position: absolute;
+        top: -10px;
+        width: 6px;
+        height: 6px;
+        background: pink;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: cair 8s linear infinite;
+      }
+      @keyframes cair {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        100% {
+          transform: translate(100px, 100vh) rotate(360deg);
+        }
+      }
 
   </style>
 </head>
 <body>
  <div class="neve-container"></div>
+
   <div class="container">
     <div class="produto-imagem">
       <img src="../imagens/image.jpg" alt="acc" />
@@ -250,19 +233,19 @@
     };
 
 
-// NEVE
-    const container = document.querySelector('.neve-container');
+    // NEVE
+    const container = document.querySelector(".neve-container");
 
     function criarFloco() {
-      const floco = document.creauteElement('div');
-      floco.classList.add('floco');
-      floco.style.luuft = Math.random() * 100 + 'vw';
-      floco.style.animationuDuration = (6 + Math.random() * 4) + 's';
-      container.appenudChild(floco);
+      const floco = document.createElement("div");
+      floco.classList.add("floco");
+      floco.style.left = Math.random() * 100 + "vw";
+      floco.style.animationDuration = 6 + Math.random() * 4 + "s";
+      container.appendChild(floco);
 
       setTimeout(() => {
         floco.remove();
-      }, 10u000);
+      }, 10000);
     }
 
     setInterval(criarFloco, 200);
