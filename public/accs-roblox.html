@@ -147,6 +147,29 @@ h2 .emoji-gif {
   height: 1.5em; /* ou maior se quiser */
 }
 
+/* 1) Garanta que o <html> tenha fundo escuro */
+/*    sem isso, quando o ::before não cobrir tudo, aparece branco */
+html {
+  background-color: #000;
+  overflow-x: hidden;            /* evita scroll horizontal fantasma */
+  overscroll-behavior-y: none;    /* previne “bounce” / scroll beyond */
+}
+
+/* 2) Expanda o ::before para cobrir o espalhamento do blur */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10px;                     /* expande 10px acima */
+  left: -10px;                    /* expande 10px à esquerda */
+  width: calc(100% + 20px);       /* cobre o extra gerado pelo blur */
+  height: calc(100% + 20px);      /* cobre o extra gerado pelo blur */
+  background-image: url("../imagens/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  z-index: -1;
+}
+
       /* Estilos da neve */
       .neve-container {
         position: fixed;
