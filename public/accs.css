@@ -74,6 +74,47 @@ main {
 
 
 
+
+
+
+
+
+/* Scrollbar bonita */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 105, 180, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .lateral-infos {
   display: flex;
   flex-direction: column;
