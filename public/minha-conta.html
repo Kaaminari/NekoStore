@@ -753,8 +753,6 @@ header {
   Mudar senha
 </a>
           </div>
-
-          <button type="button" class="btn-update">Atualizar</button>
         </form>
       </section>
     </main>
@@ -817,6 +815,7 @@ header {
 <script>
 function abrirModalSenha() {
   document.getElementById("modal-senha").style.display = "flex";
+  document.getElementById("overlay").style.display = "block"; // <--- aqui
   document.getElementById('overlay').classList.add('ativo');
   document.getElementById("erro-senha").textContent = "";
   document.getElementById("senha-antiga").value = "";
@@ -825,7 +824,8 @@ function abrirModalSenha() {
 
 function fecharModalSenha() {
   document.getElementById("modal-senha").style.display = "none";
-  document.getElementById('overlay').classList.remove('none');
+  document.getElementById('overlay').classList.remove('ativo');
+  document.getElementById("overlay").style.display = "none"; // <--- aqui
 }
 
 function alterarSenha() {
@@ -879,12 +879,19 @@ function alterarSenha() {
 
 function fecharModalSenha() {
   const modal = document.getElementById("modal-senha");
+  const overlay = document.getElementById("overlay");
+
   modal.style.animation = "fadeOut 0.2s ease forwards";
+  overlay.style.animation = "fadeOut 0.2s ease forwards";
+
   setTimeout(() => {
     modal.style.display = "none";
-    modal.style.animation = "fadeZoomIn 0.3s ease forwards";
+    overlay.style.display = "none";
+    modal.style.animation = "fadeZoomIn 0.3s ease forwards"; // reset para próxima vez
+    overlay.style.animation = ""; // limpa o estilo se quiser evitar reuso indesejado
   }, 200);
 }
+
 
   
   
