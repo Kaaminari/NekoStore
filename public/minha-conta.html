@@ -363,8 +363,6 @@ header {
   align-items: center;
   gap: 12px;
 }
-
-      
       .btn {
         padding: 8px 16px;
         border-radius: 8px;
@@ -375,20 +373,6 @@ header {
       }
 
       .btn-primary {
-        background: linear-gradient(90deg, #ff69b4, #ff00aa);
-        color: white;
-      }
-
-      .button {
-        padding: 8px 16px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
-        transition: all 0.3s;
-      }
-
-      .button-primary {
         background: linear-gradient(90deg, #ff69b4, #ff00aa);
         color: white;
       }
@@ -581,47 +565,6 @@ header {
 
 
 
-
-
-
-
-
-
-
-
-
-
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  z-index: 9998;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-#overlay.ativo {
-  opacity: 1;
-  pointer-events: all;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
       
 
 
@@ -632,6 +575,8 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -695,11 +640,11 @@ header {
 
     </style>
   </head>
-<div id="overlay" style="display: none;" ></div>
+
 <!-- Modal de Alterar Senha -->
-<div id="modal-senha" style="display: none;" class="modal-senha" onclick="event.stopPropagation()">
+<div id="modal-senha" style="display: none;" class="modal-senha">
   <div class="modal-content">
-    <span class="fechar" onclick="fecharModalSenha()">×</span>
+    <span class="fechar onclick="fecharModalSenha()">×</span>
     <h2>Alterar senha</h2>
 
     <label for="senha-antiga">Senha antiga</label>
@@ -765,8 +710,12 @@ header {
           <div class="form-group">
             <label>Senha</label>
             <input type="password" value="********" readonly />
-            <button  onclick="abrirModalSenha()" class="button button-primary" >Mudar senha</button>
+<a href="javascript:void(0);" onclick="abrirModalSenha()" style="color: #ff69b4; text-decoration: none; font-size: 0.9em; margin-top: 5px; display: inline-block;">
+  Mudar senha
+</a>
           </div>
+
+          <button type="button" class="btn-update">Atualizar</button>
         </form>
       </section>
     </main>
@@ -828,13 +777,7 @@ header {
 
 <script>
 function abrirModalSenha() {
-  const modal = document.getElementById("modal-senha");
-  const overlay = document.getElementById("overlay");
-  
-  modal.style.display = "flex";
-  overlay.style.display = "block";
-  overlay.classList.add('ativo');
-  
+  document.getElementById("modal-senha").style.display = "flex";
   document.getElementById("erro-senha").textContent = "";
   document.getElementById("senha-antiga").value = "";
   document.getElementById("nova-senha").value = "";
@@ -842,8 +785,6 @@ function abrirModalSenha() {
 
 function fecharModalSenha() {
   document.getElementById("modal-senha").style.display = "none";
-  document.getElementById('overlay').classList.remove('ativo');
-  document.getElementById("overlay").style.display = "none"; // <--- aqui
 }
 
 function alterarSenha() {
@@ -881,6 +822,30 @@ function alterarSenha() {
     fecharModalSenha();
   }, 1500);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fecharModalSenha() {
+  const modal = document.getElementById("modal-senha");
+  modal.style.animation = "fadeOut 0.2s ease forwards";
+  setTimeout(() => {
+    modal.style.display = "none";
+    modal.style.animation = "fadeZoomIn 0.3s ease forwards";
+  }, 200);
+}
+
+  
   
 </script>
 
