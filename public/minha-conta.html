@@ -575,7 +575,7 @@ header {
 
 
 
-      #overlay {
+#overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -816,16 +816,16 @@ header {
 
 <script>
 function abrirModalSenha() {
-  document.getElementById('overlay').classList.add('flex');
   document.getElementById("modal-senha").style.display = "flex";
+  document.getElementById('overlay').classList.add('ativo');
   document.getElementById("erro-senha").textContent = "";
   document.getElementById("senha-antiga").value = "";
   document.getElementById("nova-senha").value = "";
 }
 
 function fecharModalSenha() {
-  document.getElementById('overlay').classList.remove('none');
   document.getElementById("modal-senha").style.display = "none";
+  document.getElementById('overlay').classList.remove('ativo');
 }
 
 function alterarSenha() {
