@@ -677,6 +677,50 @@ header {
   }
 }
 
+
+.btn-senha {
+  position: relative;
+  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  color: white;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  border: none;
+  outline: none;
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+.btn-senha::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: bottom 0.4s ease;
+  z-index: 0;
+}
+
+.btn-senha:hover::before {
+  bottom: 0;
+}
+
+.btn-senha:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
+}
+
+.btn-senha span {
+  position: relative;
+  z-index: 1;
+}
+
     </style>
   </head>
 <div id="overlay" onclick="fecharModalSenha()"></div>
@@ -749,9 +793,7 @@ header {
           <div class="form-group">
             <label>Senha</label>
             <input type="password" value="********" readonly />
-<a href="javascript:void(0);" onclick="abrirModalSenha()" style="color: #ff69b4; text-decoration: none; font-size: 0.9em; margin-top: 5px; display: inline-block;">
-  Mudar senha
-</a>
+          <button class="btn-senha" onclick="abrirModalSenha()"><span>Mudar senha</span></button>
           </div>
         </form>
       </section>
