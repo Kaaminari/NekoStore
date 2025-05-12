@@ -462,6 +462,76 @@ header {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /* Animação de entrada do modal */
+@keyframes fadeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-senha {
+  animation: fadeZoomIn 0.3s ease forwards;
+}
+
+/* Animações suaves ao focar */
+.modal-senha .modal-content input {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.modal-senha .modal-content input:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-senha .modal-content input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ff69b4;
+  box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
 .modal-senha {
   position: fixed;
   top: 0;
@@ -518,6 +588,17 @@ header {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+      @keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 }
 
     </style>
@@ -704,6 +785,31 @@ function alterarSenha() {
     fecharModalSenha();
   }, 1500);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fecharModalSenha() {
+  const modal = document.getElementById("modal-senha");
+  modal.style.animation = "fadeOut 0.2s ease forwards";
+  setTimeout(() => {
+    modal.style.display = "none";
+    modal.style.animation = "fadeZoomIn 0.3s ease forwards";
+  }, 200);
+}
+
+  
+  
 </script>
 
 
