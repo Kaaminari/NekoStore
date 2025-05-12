@@ -881,12 +881,19 @@ function alterarSenha() {
 
 function fecharModalSenha() {
   const modal = document.getElementById("modal-senha");
+  const overlay = document.getElementById("overlay");
+
   modal.style.animation = "fadeOut 0.2s ease forwards";
+  overlay.style.animation = "fadeOut 0.2s ease forwards";
+
   setTimeout(() => {
     modal.style.display = "none";
-    modal.style.animation = "fadeZoomIn 0.3s ease forwards";
+    overlay.style.display = "none";
+    modal.style.animation = "fadeZoomIn 0.3s ease forwards"; // reset para próxima vez
+    overlay.style.animation = ""; // limpa o estilo se quiser evitar reuso indesejado
   }, 200);
 }
+
 
   
   
