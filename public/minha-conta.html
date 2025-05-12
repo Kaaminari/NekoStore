@@ -801,7 +801,7 @@ header {
             <label>Senha</label>
             <input type="password" value="********" readonly />
 <a href="javascript:void(0);" onclick="abrirModalSenha()" class="pop-senha">Mudar senha</a>
-
+<a href="javascript:void(0);" onclick="deslogar()" class="pop-senha">Deslogar</a>
           </div>
         </form>
       </section>
@@ -823,6 +823,11 @@ header {
           document.getElementById("email").value = usuario.email;
         }
       };
+
+function deslogar() {
+  localStorage.removeItem('logado');
+  window.location.href = '../index.html';
+}
     </script>
 <footer style="background: rgba(0, 0, 0, 0.8); padding: 40px 20px; margin-top: 50px; width: 97.8%;">
   <div style="max-width: 1200px; margin: 0 auto;">
