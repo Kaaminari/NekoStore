@@ -816,7 +816,7 @@ header {
 
 <script>
 function abrirModalSenha() {
-  document.getElementById('overlay').classList.add('ativo');
+  document.getElementById('overlay').classList.add('flex');
   document.getElementById("modal-senha").style.display = "flex";
   document.getElementById("erro-senha").textContent = "";
   document.getElementById("senha-antiga").value = "";
@@ -824,7 +824,7 @@ function abrirModalSenha() {
 }
 
 function fecharModalSenha() {
-  document.getElementById('overlay').classList.remove('ativo');
+  document.getElementById('overlay').classList.remove('none');
   document.getElementById("modal-senha").style.display = "none";
 }
 
