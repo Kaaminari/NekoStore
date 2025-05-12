@@ -678,7 +678,7 @@ header {
 }
 
 
-.btn-senha {
+.pop-senha {
   position: relative;
   background: linear-gradient(90deg, #ff69b4, #ff00aa);
   color: white;
@@ -695,7 +695,7 @@ header {
   font-size: 0.9em;
 }
 
-.btn-senha::before {
+.pop-senha::before {
   content: "";
   position: absolute;
   left: 0;
@@ -707,16 +707,16 @@ header {
   z-index: 0;
 }
 
-.btn-senha:hover::before {
+.pop-senha:hover::before {
   bottom: 0;
 }
 
-.btn-senha:hover {
+.pop-senha:hover {
   transform: scale(1.05);
   box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
 }
 
-.btn-senha span {
+.pop-senha span {
   position: relative;
   z-index: 1;
 }
@@ -793,7 +793,7 @@ header {
           <div class="form-group">
             <label>Senha</label>
             <input type="password" value="********" readonly />
-          <button class="btn-senha" onclick="abrirModalSenha()"><span>Mudar senha</span></button>
+          <button class="pop-senha" onclick="abrirModalSenha()"><span>Mudar senha</span></button>
           </div>
         </form>
       </section>
