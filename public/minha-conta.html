@@ -365,7 +365,7 @@ header {
 }
 
       
-      .btnn {
+      .btn {
         padding: 8px 16px;
         border-radius: 8px;
         border: none;
@@ -374,7 +374,21 @@ header {
         transition: all 0.3s;
       }
 
-      .btnn-primary {
+      .btn-primary {
+        background: linear-gradient(90deg, #ff69b4, #ff00aa);
+        color: white;
+      }
+
+      .button {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .button-primary {
         background: linear-gradient(90deg, #ff69b4, #ff00aa);
         color: white;
       }
@@ -751,7 +765,7 @@ header {
           <div class="form-group">
             <label>Senha</label>
             <input type="password" value="********" readonly />
-<button href="javascript:void(0);" onclick="abrirModalSenha()" class="btnn btnn-primary" style="font-size: 0.9em; margin-top: 5px;">
+<button  onclick="abrirModalSenha()" class="button button-primary" style="font-size: 0.9em; margin-top: 5px;">
   Mudar senha
 </button>
           </div>
