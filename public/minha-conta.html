@@ -452,9 +452,106 @@ header {
         background: #ff69b4;
         color: white;
       }
+
+
+
+
+
+
+
+
+
+
+      .modal-senha {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-conteudo {
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px #ff69b4aa;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.fechar-modal:hover {
+  color: #ff69b4;
+  transform: scale(1.1);
+}
+
+.modal-conteudo h3 {
+  margin-bottom: 20px;
+  color: #ff69b4;
+}
+
+.modal-conteudo .form-group label {
+  color: #ff69b4;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.modal-conteudo .form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
     </style>
   </head>
 
+
+  <!-- Modal Alterar Senha -->
+<div id="modal-senha" class="modal-senha">
+  <div class="modal-conteudo">
+    <span class="fechar-modal" onclick="fecharModalSenha()">✕</span>
+    <h3>Alterar senha</h3>
+    <div class="form-group">
+      <label for="senha-antiga">Senha antiga</label>
+      <input type="password" id="senha-antiga" placeholder="Digite sua senha atual" />
+    </div>
+    <div class="form-group">
+      <label for="nova-senha">Nova senha</label>
+      <input type="password" id="nova-senha" placeholder="Digite a nova senha" />
+    </div>
+    <button class="btn-update" onclick="atualizarSenha()">Atualizar senha</button>
+  </div>
+</div>
+
+
+  
   <body>
     <div class="neve-container"></div>
 
@@ -505,18 +602,9 @@ header {
           <div class="form-group">
             <label>Senha</label>
             <input type="password" value="********" readonly />
-            <a
-              href="#"
-              style="
-                color: #ff69b4;
-                text-decoration: none;
-                font-size: 0.9em;
-                margin-top: 5px;
-                display: inline-block;
-              "
-            >
-              Mudar senha
-            </a>
+<a href="javascript:void(0);" onclick="abrirModalSenha()" style="color: #ff69b4; text-decoration: none; font-size: 0.9em; margin-top: 5px; display: inline-block;">
+  Mudar senha
+</a>
           </div>
 
           <button type="button" class="btn-update">Atualizar</button>
@@ -578,6 +666,41 @@ header {
       </div>
     </footer>
 </body>
+
+<script>
+  function abrirModalSenha() {
+    document.getElementById('modal-senha').style.display = 'flex';
+  }
+
+  function fecharModalSenha() {
+    document.getElementById('modal-senha').style.display = 'none';
+  }
+
+  function atualizarSenha() {
+    const antiga = document.getElementById('senha-antiga').value;
+    const nova = document.getElementById('nova-senha').value;
+
+    if (nova.length < 6) {
+      alert("A nova senha precisa ter pelo menos 6 caracteres.");
+      return;
+    }
+
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+    const logado = localStorage.getItem('logado');
+    const index = usuarios.findIndex(u => u.nome === logado);
+
+    if (usuarios[index].senha !== antiga) {
+      alert("Senha antiga incorreta.");
+      return;
+    }
+
+    usuarios[index].senha = nova;
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+    alert("Senha atualizada com sucesso!");
+    fecharModalSenha();
+  }
+</script>
+
 
   <script>
     // NEVE
