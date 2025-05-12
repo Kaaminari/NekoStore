@@ -683,7 +683,7 @@ header {
   </head>
 <div id="overlay" style="display: none;" onclick="fecharModalSenha()" ></div>
 <!-- Modal de Alterar Senha -->
-<div id="modal-senha" style="display: none;" class="modal-senha">
+<div id="modal-senha" style="display: none;" class="modal-senha" onclick="event.stopPropagation()">
   <div class="modal-content">
     <span class="fechar" onclick="fecharModalSenha()">×</span>
     <h2>Alterar senha</h2>
@@ -816,9 +816,13 @@ header {
 
 <script>
 function abrirModalSenha() {
-  document.getElementById("modal-senha").style.display = "flex";
-  document.getElementById("overlay").style.display = "block"; // <--- aqui
-  document.getElementById('overlay').classList.add('ativo');
+  const modal = document.getElementById("modal-senha");
+  const overlay = document.getElementById("overlay");
+  
+  modal.style.display = "flex";
+  overlay.style.display = "block";
+  overlay.classList.add('ativo');
+  
   document.getElementById("erro-senha").textContent = "";
   document.getElementById("senha-antiga").value = "";
   document.getElementById("nova-senha").value = "";
