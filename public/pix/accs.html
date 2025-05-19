@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Neko Store</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <div class="container-checkout">
+    <div class="produto-info">
+      <h2>CONTA ROCKSTAR</h2>
+      <p class="preco-antigo">De: R$ 14,99</p>
+      <p class="preco">R$ 7,99</p>
+
+      <div class="quantidade-container">
+        <button class="btn-rosa" onclick="alterarQuantidade(-1)">-</button>
+        <span id="quantidade">1</span>
+        <button class="btn-rosa" onclick="alterarQuantidade(1)">+</button>
+      </div>
+    </div>
+
+    <div class="pagamento">
+      <h3>Formas de pagamento</h3>
+      <label><input type="radio" name="pagamento" checked> Pix</label>
+
+      <h3>Informações Pessoais</h3>
+      <input type="text" placeholder="Nome">
+      <input type="text" placeholder="Sobrenome">
+      <input type="email" placeholder="E-mail">
+
+      <label class="checkbox">
+        <input type="checkbox"> Aceito os termos e condições
+      </label>
+
+      <button class="btn-rosa" style="margin-top: 10px;">Realizar pagamento</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">A quantidade máxima para este produto é 1</div>
+
+  <script>
+    let quantidade = 1;
+    const estoque = 1;
+    const spanQuantidade = document.getElementById("quantidade");
+    const toast = document.getElementById("toast");
+
+    function alterarQuantidade(valor) {
+      if (valor === 1 && quantidade >= estoque) {
+        mostrarToast("A quantidade máxima para este produto é " + estoque);
+        return;
+      }
+
+      if (valor === -1 && quantidade <= 1) return;
+
+      quantidade += valor;
+      spanQuantidade.textContent = quantidade;
+    }
+
+    function mostrarToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("mostrar");
+      setTimeout(() => toast.classList.remove("mostrar"), 3000);
+    }
+  </script>
+</body>
+</html>
