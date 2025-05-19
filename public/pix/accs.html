@@ -7,33 +7,71 @@
   <link rel="stylesheet" href="acc.css">
 </head>
 <body>
-  <div class="container-checkout">
-    <div class="produto-info">
-      <h2>CONTA ROCKSTAR</h2>
-      <p class="preco-antigo">De: R$ 14,99</p>
-      <p class="preco">R$ 7,99</p>
+  <div class="container">
+    <div class="left-section">
+      <a href="/" class="back-link">
+        <img src="../../imagens/icon.png" alt="Icon" class="icon">
+        <span>/ Checkout</span>
+      </a>
+      
+      <div class="product-info">
+        <div class="product-title">CONTA ROCKSTAR</div>
+        <div class="product-price">
+          <div class="old-price">De: R$ 14,99</div>
+          <div class="current-price">R$ 7,99</div>
+        </div>
+        
+        <div class="quantity-control">
+          <button class="quantity-btn" onclick="alterarQuantidade(-1)">-</button>
+          <span id="quantidade">1</span>
+          <button class="quantity-btn" onclick="alterarQuantidade(1)">+</button>
+        </div>
+      </div>
 
-      <div class="quantidade-container">
-        <button class="btn-rosa" onclick="alterarQuantidade(-1)">-</button>
-        <span id="quantidade">1</span>
-        <button class="btn-rosa" onclick="alterarQuantidade(1)">+</button>
+      <div class="discount-section">
+        <div class="discount-label">Cupom de desconto</div>
+        <button class="apply-btn">Aplicar cupom</button>
+      </div>
+
+      <div class="total-section">
+        <div class="subtotal">
+          <span>Sub total</span>
+          <span>R$ 7,99</span>
+        </div>
+        <div class="total">
+          <span>Valor total</span>
+          <span>R$ 8,31</span>
+        </div>
       </div>
     </div>
 
-    <div class="pagamento">
-      <h3>Formas de pagamento</h3>
-      <label><input type="radio" name="pagamento" checked> Pix</label>
+    <div class="right-section">
+      <div class="payment-section">
+        <h3>Formas de pagamentos</h3>
+        <div class="payment-option">
+          <input type="radio" id="pix" name="payment" checked>
+          <label for="pix">
+            <span>Pix</span>
+            <span class="payment-status">Aprovação imediata</span>
+          </label>
+        </div>
+      </div>
 
-      <h3>Informações Pessoais</h3>
-      <input type="text" placeholder="Nome">
-      <input type="text" placeholder="Sobrenome">
-      <input type="email" placeholder="E-mail">
+      <div class="personal-info">
+        <h3>Informações Pessoais</h3>
+        <div class="name-fields">
+          <input type="text" placeholder="Nome">
+          <input type="text" placeholder="Sobrenome">
+        </div>
+        <input type="email" placeholder="Endereço de e-mail">
+      </div>
 
-      <label class="checkbox">
-        <input type="checkbox"> Aceito os termos e condições
-      </label>
+      <div class="terms">
+        <input type="checkbox" id="terms">
+        <label for="terms">Eu aceito os <a href="#">termos e condições</a> desta compra.</label>
+      </div>
 
-      <button class="btn-rosa" style="margin-top: 10px;">Realizar pagamento</button>
+      <button class="checkout-btn">Realizar pagamento</button>
     </div>
   </div>
 
@@ -41,18 +79,16 @@
 
   <script>
     let quantidade = 1;
-    const estoque = 1;
     const spanQuantidade = document.getElementById("quantidade");
     const toast = document.getElementById("toast");
 
     function alterarQuantidade(valor) {
-      if (valor === 1 && quantidade >= estoque) {
-        mostrarToast("A quantidade máxima para este produto é " + estoque);
+      if (valor === 1 && quantidade >= 1) {
+        mostrarToast("A quantidade máxima para este produto é 1");
         return;
       }
-
       if (valor === -1 && quantidade <= 1) return;
-
+      
       quantidade += valor;
       spanQuantidade.textContent = quantidade;
     }
