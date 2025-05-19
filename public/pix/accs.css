@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 40px;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.container-checkout {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.produto-info, .pagamento {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  flex: 1 1 45%;
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.preco {
+  font-size: 1.8rem;
+  color: #ff69b4;
+  margin: 10px 0;
+}
+
+.quantidade-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-rosa {
+  background: linear-gradient(90deg, #ff69b4, #ff00aa);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-rosa:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 0 2px rgba(255, 105, 180, 0.8);
+}
+
+.btn-rosa::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: bottom 0.4s ease;
+  z-index: 0;
+}
+
+.btn-rosa:hover::before {
+  bottom: 0;
+}
+
+.btn-rosa span {
+  position: relative;
+  z-index: 1;
+}
+
+.pagamento input[type="text"],
+.pagamento input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  font-size: 14px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4444;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.toast.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
